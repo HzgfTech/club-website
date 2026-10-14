@@ -1,0 +1,37 @@
+{
+  "club": { "name": "幻造工坊", "email": "hzgftech@protonmail.com" },
+  "resources": [
+    {
+      "id": "member-profile", "title": "优秀社员展示资料", "description": "整理开发方向、个人简介和代表游戏。",
+      "category": "投稿模板", "format": "MD", "file": "member-profile.md", "updated": "2026-10-13",
+      "content": "填写姓名或公开昵称、游戏开发方向、个人简介、代表游戏或开发作品名称与链接，以及联系邮箱。\n\n确认公开授权后，将资料发送至社团邮箱。"
+    },
+    {
+      "id": "project-submission", "title": "游戏作品投稿资料", "description": "整理玩法、开发进度与可游玩的游戏链接。",
+      "category": "投稿模板", "format": "MD", "file": "project-submission.md", "updated": "2026-10-13",
+      "content": "填写游戏名称、作者或团队、游戏类型、玩法简介、当前进度、游玩方式和可访问的游戏链接。可附封面图片链接。\n\n确认作品展示授权后，将资料发送至社团邮箱。"
+    },
+    {
+      "id": "forge-mark", "title": "工坊视觉标识", "description": "钴蓝色几何标识，当前网站的视觉提案。",
+      "category": "品牌素材", "format": "SVG", "file": "forge-mark.svg", "updated": "2026-10-13",
+      "content": "适合网站、联系卡与社团数字资料的矢量标识。\n\n这是一份新制作的视觉提案，尚未确认为社团正式标识。"
+    },
+    {
+      "id": "club-contact", "title": "社团邮箱联系卡", "description": "保存幻造工坊邮箱，随时联系与投稿。",
+      "category": "社团资料", "format": "VCF", "file": "club-contact.vcf", "updated": "2026-10-13",
+      "content": "幻造工坊\nhzgftech@protonmail.com\n\n下载联系卡，可导入支持 vCard 的通讯录。"
+    }
+  ],
+  "works": [],
+  "members": [
+    {
+      "id": "amiya-desi",
+      "name": "Amiya_desi",
+      "role": "独立游戏制作 · 全栈开发 · 社团官网搭建",
+      "bio": "热衷于独立游戏设计与交互体验探索，独立制作并发布了多款不同题材与玩法机制的游戏作品。\n\n作为幻造工坊核心创作者之一，一手完成了本社团官方网站的视觉设计、交互架构与前端工程搭建，并持续在个人网站 sayori.org 分享游戏作品、开发笔记与技术实践。",
+      "specialties": ["独立游戏制作", "玩法与系统设计", "全栈前端工程", "官网架构搭建"],
+      "avatar": "https://blog.sayori.org/_astro/avatar-sayori.B2-NMtDW_VIeu6.webp",
+      "url": "https://sayori.org"
+    }
+  ]
+}

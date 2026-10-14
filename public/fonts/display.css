@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Noto Serif SC';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/display-500.ttf) format('truetype');
+}
