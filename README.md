@@ -2,6 +2,21 @@
 
 The home page supports Chinese and English. Other pages currently use Chinese. The site uses React, Vite, TypeScript, and independent HTML entry points.
 
+Live website: https://hzgf.tech/.
+
+## Agent guide and deployment
+
+Start with [agent.md](agent.md) or [AGENTS.md](AGENTS.md). AGENTS.md contains the maintained build, exact-path staging, GitHub/GitCode push, Cloudflare deployment, and successor setup workflow.
+
+On the existing Windows host, use PowerShell 7:
+
+    Set-Location D:\hzgftech\club-website
+    npm.cmd run build
+    if ($LASTEXITCODE -ne 0) { throw 'Website build failed.' }
+    & D:\hzgftech\tools\Publish-ClubWebsite.ps1 -WebsitePath D:\hzgftech\club-website
+
+Commit and push the reviewed source changes to both remotes (`github` and `gitcode`) before production deployment. This Cloudflare Pages project uses Direct Upload; Git pushes alone do not deploy it. Reuse the existing publisher and privately stored credentials. The public website repository contains no API credentials.
+
 ## Run
 
     Set-Location D:\hzgftech\club-website

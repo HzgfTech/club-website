@@ -1,37 +1,264 @@
 {
-  "club": { "name": "幻造工坊", "email": "hzgftech@protonmail.com" },
+  "club": {
+    "name": "幻造工坊",
+    "fullName": "浙江科技大学幻造工坊游戏开发社团",
+    "university": "浙江科技大学",
+    "category": "学术科技类学生社团",
+    "motto": "以创为乐，向暖生活，心怀美好，手创未来。",
+    "email": "hzgftech@protonmail.com",
+    "phone": "19730031977",
+    "qqGroup": "1130062117"
+  },
   "resources": [
     {
-      "id": "member-profile", "title": "优秀社员展示资料", "description": "整理开发方向、个人简介和代表游戏。",
-      "category": "投稿模板", "format": "MD", "file": "member-profile.md", "updated": "2026-10-13",
-      "content": "填写姓名或公开昵称、游戏开发方向、个人简介、代表游戏或开发作品名称与链接，以及联系邮箱。\n\n确认公开授权后，将资料发送至社团邮箱。"
+      "id": "godot-tutorial-roadmap",
+      "title": "Godot 4 从入门到进阶学习路线图",
+      "description": "含 Brackeys 零基础入门、勇者传说进阶系列教程与常用实战插件清单（由 Amiya_desi 提供）。",
+      "category": "开发指南",
+      "format": "MD",
+      "file": "godot-tutorial-roadmap.md",
+      "updated": "2026-10-14",
+      "provider": "由 Amiya_desi 提供",
+      "externalUrl": "https://blog.sayori.org/posts/godot-useful-plugins/",
+      "content": "整合 Godot 4 零基础 1 小时入门视频（BV12htQeQEMs）、《勇者传说》30 集横版动作游戏进阶教程（BV1SP411m7aj），以及 DialogueManager、SceneManager、PhantomCamera、SoundManager、Enhanced Save System 等实战插件与 Game Jam 原型开发建议。\n\n由幻造工坊社员 Amiya_desi 结合多场 Game Jam 实战经验整理提供。"
     },
     {
-      "id": "project-submission", "title": "游戏作品投稿资料", "description": "整理玩法、开发进度与可游玩的游戏链接。",
-      "category": "投稿模板", "format": "MD", "file": "project-submission.md", "updated": "2026-10-13",
-      "content": "填写游戏名称、作者或团队、游戏类型、玩法简介、当前进度、游玩方式和可访问的游戏链接。可附封面图片链接。\n\n确认作品展示授权后，将资料发送至社团邮箱。"
+      "id": "indie-gamedev-resource-nav",
+      "title": "独立游戏素材、音频与工具导航手册",
+      "description": "精选 2D/3D CC0 素材、像素美术工具、游戏 BGM 与复古音效生成器（由 Amiya_desi 提供）。",
+      "category": "开发指南",
+      "format": "MD",
+      "file": "indie-gamedev-resource-nav.md",
+      "updated": "2026-10-14",
+      "provider": "由 Amiya_desi 提供",
+      "externalUrl": "https://nav.sayori.org/",
+      "content": "提取自 Amiya的书桌资源导航（nav.sayori.org）与创作资源索引（blog.sayori.org/posts/resource-index/），按 2D/3D 素材与 Shader、像素画与动画工具、游戏配乐与音效生成器分类整理，并附社团作品素材授权与署名规范。"
     },
     {
-      "id": "forge-mark", "title": "工坊视觉标识", "description": "钴蓝色几何标识，当前网站的视觉提案。",
-      "category": "品牌素材", "format": "SVG", "file": "forge-mark.svg", "updated": "2026-10-13",
-      "content": "适合网站、联系卡与社团数字资料的矢量标识。\n\n这是一份新制作的视觉提案，尚未确认为社团正式标识。"
+      "id": "club-charter-and-guide",
+      "title": "幻造工坊社团章程与学期活动指南",
+      "description": "浙江科技大学幻造工坊游戏开发社团定位、组织机构、四阶段工作坊计划与安全准则摘要。",
+      "category": "社团资料",
+      "format": "MD",
+      "file": "club-charter-and-guide.md",
+      "updated": "2026-10-14",
+      "content": "依据《浙江科技大学幻造工坊游戏开发社团章程》《社团成立答辩稿》及《安全管理细则》整理，涵盖学术科技类定位、“以创为乐，向暖生活，心怀美好，手创未来”宗旨、四大部门职能、一学期试运行路线图、零会费原则及作品著作权保护条款。"
     },
     {
-      "id": "club-contact", "title": "社团邮箱联系卡", "description": "保存幻造工坊邮箱，随时联系与投稿。",
-      "category": "社团资料", "format": "VCF", "file": "club-contact.vcf", "updated": "2026-10-13",
-      "content": "幻造工坊\nhzgftech@protonmail.com\n\n下载联系卡，可导入支持 vCard 的通讯录。"
+      "id": "project-submission",
+      "title": "游戏作品投稿资料",
+      "description": "整理玩法、开发进度与可游玩的游戏链接，申请登上社团作品展。",
+      "category": "投稿模板",
+      "format": "MD",
+      "file": "project-submission.md",
+      "updated": "2026-10-14",
+      "content": "填写游戏名称、作者或团队、开发引擎、游戏类型、玩法简介、当前进度、游玩方式和可访问的游戏链接。可附封面图片链接。\n\n确认作品展示授权后，将资料发送至社团邮箱 hzgftech@protonmail.com 或在社团 QQ 群 1130062117 联系管理员。"
+    },
+    {
+      "id": "member-profile",
+      "title": "优秀社员展示资料",
+      "description": "整理开发方向、个人简介和代表游戏，展示在优秀社员档案页。",
+      "category": "投稿模板",
+      "format": "MD",
+      "file": "member-profile.md",
+      "updated": "2026-10-14",
+      "content": "填写姓名或公开昵称、游戏开发方向、个人简介、代表游戏或开发作品名称与链接，以及联系邮箱。\n\n确认公开授权后，将资料发送至社团邮箱 hzgftech@protonmail.com。"
+    },
+    {
+      "id": "forge-mark",
+      "title": "工坊视觉标识",
+      "description": "钴蓝色几何标识，幻造工坊网站的矢量视觉徽标。",
+      "category": "品牌素材",
+      "format": "SVG",
+      "file": "forge-mark.svg",
+      "updated": "2026-10-13",
+      "content": "适合网站、联系卡与社团数字资料的矢量标识。\n\n融合像素方块与铁砧锻造意象，象征把脑海中的灵感锻造成可运行的互动世界。"
+    },
+    {
+      "id": "club-contact",
+      "title": "社团联系卡（邮箱 / 电话 / QQ群）",
+      "description": "一键导入幻造工坊邮箱、联系电话与招新交流 QQ 群。",
+      "category": "社团资料",
+      "format": "VCF",
+      "file": "club-contact.vcf",
+      "updated": "2026-10-14",
+      "content": "浙江科技大学幻造工坊游戏开发社团\n联系邮箱：hzgftech@protonmail.com\n联系电话：19730031977\n社团交流 QQ 群：1130062117\n\n下载联系卡，可导入手机或电脑通讯录。"
     }
   ],
-  "works": [],
+  "works": [
+    {
+      "id": "wake-up-at-the-border",
+      "title": "梦醒边界 · Wake Up at the Border",
+      "summary": "融合箱庭探索、非线性对话与回合战斗的 Godot 独立游戏，荣获 GodotHub 第三届开发大赛命题 Jam 赛道二等奖。",
+      "category": "叙事解谜",
+      "author": "Amiya_desi",
+      "url": "https://amiya-desi.itch.io/wake-up-at-the-border",
+      "cover": "/images/work-wake-up.png",
+      "engine": "Godot 4",
+      "status": "赛事二等奖 · 在线可玩",
+      "featured": true,
+      "tags": ["Godot 4", "叙事解谜", "非线性对话", "GodotHub 二等奖", "浏览器即玩"],
+      "sourceUrl": "https://legacy.godothub.com/festival/winners.html",
+      "sourceLabel": "查看 GodotHub 获奖名单",
+      "detail": "《梦醒边界》（Wake Up at the Border）是社员 Amiya_desi 围绕「Wake」主题独立完成的叙事解谜与冒险游戏，在 GodotHub 第三届游戏开发大赛命题 Jam 赛道中荣获二等奖。\n\n游戏将多分支对话演出、场景机关解谜与情绪化的战斗机制结合在一起。玩家在现实与梦境交错的边界醒来，通过与边境角色的互动收集线索、解开空间谜题。该项目也是创作者从教程跟练走向完整原创原型的里程碑作品，沉淀了状态机架构、对话系统接入与 Git 版本管理的完整经验。"
+    },
+    {
+      "id": "delaytrace",
+      "title": "DelayTrace · 延迟轨迹",
+      "summary": "围绕「三秒时间延迟、行动轨迹录制与过去残影回放」展开的 Godot 空间动作解谜作品，与过去的自己协同破局。",
+      "category": "机制解谜",
+      "author": "Amiya_desi",
+      "url": "https://amiya-desi.itch.io/delaytrace",
+      "cover": "/images/work-delaytrace.png",
+      "engine": "Godot 4",
+      "status": "公开试玩 · 工作室精选",
+      "featured": true,
+      "tags": ["Godot 4", "时间延迟机制", "轨迹回放", "Game Jam 佳作", "Web 试玩"],
+      "sourceUrl": "https://studio.sayori.org/work.html?id=delaytrace",
+      "sourceLabel": "XY-Amiya Studio 作品档案",
+      "detail": "「你的过去晚了三秒——但仍在追赶你。」\n\n《DelayTrace》收录于 XY-Amiya Studio（studio.sayori.org）精选作品集，是一款聚焦核心时间机制的 Godot 动作解谜小游戏。玩家的每一次移动与交互都会被实时记录，并在三秒后化作“时间残影”精确重演。关卡设计要求玩家同时规划当下路径与三秒后的残影位置，利用双时间线联动触发机关、跨越障碍并避开悖论碰撞。"
+    },
+    {
+      "id": "helen-cozy-sandbox",
+      "title": "微光岛屿 · 2D 温馨治愈沙盒开发企划",
+      "summary": "由社员「就是Helen」独立研发并连载 30+ 期开发日志的 2D 治愈向沙盒 RPG，实装昼夜路灯光影、四季风雪、划船钓鱼与耕种系统。",
+      "category": "沙盒冒险",
+      "author": "就是Helen",
+      "url": "https://www.bilibili.com/video/BV1Rja86RE6W/",
+      "cover": "/images/work-helen-sandbox.jpg",
+      "engine": "Unity 2D",
+      "status": "30+ 期开发日志连载",
+      "featured": true,
+      "tags": ["Unity 2D", "昼夜动态光影", "划船与钓鱼", "种田与背包系统", "原创像素与UI"],
+      "sourceUrl": "https://space.bilibili.com/269723498",
+      "sourceLabel": "访问 就是Helen 的 B站主页",
+      "detail": "《微光岛屿》（2D 温馨治愈向沙盒开发企划）是社员「就是Helen」在 Bilibili 持续记录超过 30 期《游戏开发日志》的长期独立项目。\n\n作品从零搭建了完整的 2D 沙盒生活与探索循环：包含自然过渡的昼夜交替与夜晚路灯 2D 光照系统、细腻的水体波纹与木船划行、晴雨及暴雪天气下的垂钓玩法、土地开垦与作物丰收、自行车骑行代步，以及手绘风格的背包交互与动态 UI 动画，展现了扎实的全栈独立开发与美术把控能力。"
+    },
+    {
+      "id": "timerewindlinker",
+      "title": "TimeRewindLinker · 时间回溯连接器",
+      "summary": "将时间倒流、动作回放与跨越时空的「连接光束」融为一体的 2D 物理空间解谜实验，内含 11 个递进式烧脑关卡。",
+      "category": "机制解谜",
+      "author": "Amiya_desi",
+      "url": "https://amiya-desi.itch.io/time-rewind-linker",
+      "cover": "/images/work-timerewind.png",
+      "engine": "Godot 4",
+      "status": "完整 11 关可玩",
+      "featured": true,
+      "tags": ["Godot 4", "时间倒流", "光束连接机制", "11 关完整设计"],
+      "sourceUrl": "https://studio.sayori.org/work.html?id=timerewindlinker",
+      "sourceLabel": "XY-Amiya Studio 作品档案",
+      "detail": "《TimeRewindLinker》是一次围绕“时间回声与空间连接”展开的深度机制实验。玩家不仅可以倒流时间创造过去行动的分身回声（Echo），还能在本体与过去回声之间发射一条具备物理与逻辑判定效果的「连接光束（Connection Beam）」。\n\n通过移动本体与时间分身的相对位置，玩家可以利用连接光束切割机关、传导能量或搭建桥梁，在 11 个精心打磨的 2D 空间谜题中体验高密度的顿悟感。"
+    },
+    {
+      "id": "helen-034-gamejam",
+      "title": "送034回家 · 三角色相连平台解谜",
+      "summary": "034 GameJam 挑战赛团队作品：操控「0、3、4」三个角色两两相连、共享各自特殊能力，在视角切换与协作中闯关。",
+      "category": "机制解谜",
+      "author": "就是Helen（团队作品）",
+      "url": "https://www.bilibili.com/video/BV1yPwxzYEpe/",
+      "cover": "/images/work-helen-034.jpg",
+      "engine": "Unity 2D",
+      "status": "034 GameJam 参赛作",
+      "featured": false,
+      "tags": ["034 GameJam", "平台跳跃解谜", "多角色能力共享", "团队协作开发"],
+      "sourceUrl": "https://space.bilibili.com/269723498",
+      "sourceLabel": "查看 B站实机演示与下载",
+      "detail": "《送034回家》是社员「就是Helen」与团队伙伴首次参加 034 GameJam 限时游戏创作挑战完成的平台跳跃解谜游戏。\n\n游戏紧扣「0、3、4」数字主题，设计了三名拥有不同能力的角色。玩家通过数字键 1、2、3 实时切换主控视角，让角色之间两两建立连接并共享跳跃、机关交互等能力，在紧密配合中解开层层平台机关，护送伙伴顺利回家。"
+    },
+    {
+      "id": "mios-window-wanderer",
+      "title": "Mio's Window Wanderer · 多窗口漫游者",
+      "summary": "打破单一窗口边界的 Godot 4.5 多窗口 Meta 交互冒险原型（ThatGameJam 作品），让角色在多个桌面窗口间穿梭解谜。",
+      "category": "实验交互",
+      "author": "Amiya_desi（联合开发）",
+      "url": "https://amiya-desi.itch.io/thatgamejam",
+      "cover": "/images/work-window-wanderer.png",
+      "engine": "Godot 4.5",
+      "status": "Meta 多窗口实验",
+      "featured": false,
+      "tags": ["Godot 4.5", "Meta 游戏", "多窗口交互", "ThatGameJam"],
+      "sourceUrl": "https://amiya-desi.itch.io/",
+      "sourceLabel": "访问 itch.io 作品库",
+      "detail": "《Mio's Window Wanderer》是参加 ThatGameJam 期间探索桌面级 Meta 交互的实验性冒险原型。\n\n作品利用 Godot 4 的多窗口（Multi-Window）管理能力，将游戏世界拆解为多个独立的视窗。玩家需要观察并操作不同窗口之间的相对关系，引导角色跨越窗口边框完成探索，为社团后续的 Meta 叙事游戏研发积累了底层窗口通信经验。"
+    },
+    {
+      "id": "last-minute-echo",
+      "title": "Last Minute Echo · 终刻回响",
+      "summary": "GMTK Game Jam「Countdown」主题极限开发作品：在倒计时压迫与追猎者围堵下，利用时间回溯修正路线、极限逃生。",
+      "category": "动作冒险",
+      "author": "Amiya_desi",
+      "url": "https://amiya-desi.itch.io/last-minute-echo",
+      "cover": "/images/work-last-minute-echo.png",
+      "engine": "Godot 4",
+      "status": "GMTK Jam 参赛作",
+      "featured": false,
+      "tags": ["GMTK Game Jam", "Countdown 主题", "倒计时追逐", "浏览器即玩"],
+      "detail": "《Last Minute Echo》诞生于全球知名的 GMTK Game Jam（主题：Countdown）。\n\n在最后六小时的极限冲刺中，作者果断收缩庞大的解谜分支，聚焦于「倒计时生存 + 追猎者 AI 博弈 + 时间回溯纠错」的单一闭环体验，确保游戏拥有完整的胜负判定与紧张刺激的追逐节奏。"
+    },
+    {
+      "id": "enhanced-save-system",
+      "title": "Enhanced Save System · 模块化存档插件",
+      "summary": "面向 Godot 4 的开源模块化存档系统，同时提供 GDScript 与 C# 双版本实现，支持自定义 Hook 与存档加密。",
+      "category": "开源工具",
+      "author": "Amiya_desi",
+      "url": "https://github.com/Amiyadesi/enhance_save_system",
+      "cover": "/images/work-save-system.svg",
+      "engine": "GDScript / C#",
+      "status": "GitHub 开源维护",
+      "featured": false,
+      "tags": ["Godot 4 插件", "GDScript & C#", "模块化架构", "加密存档", "开源工程"],
+      "sourceUrl": "https://blog.sayori.org/posts/godot-useful-plugins/",
+      "sourceLabel": "阅读 Godot 插件专栏",
+      "detail": "《Enhanced Save System》是社员 Amiya_desi 结合多款游戏开发实践提炼出的 Godot 4 开源存档模块，收录于 XY-Amiya Studio 工具库。\n\n插件采用解耦的模块化设计，同时提供 GDScript 与 C# 实现，支持生命周期 Hook 注入、多存档槽位管理、状态序列化与加密存储，帮助社团成员在小组原型与比赛项目中快速接入可靠的存档功能。"
+    }
+  ],
   "members": [
     {
       "id": "amiya-desi",
       "name": "Amiya_desi",
-      "role": "独立游戏制作 · 全栈开发 · 社团官网搭建",
-      "bio": "热衷于独立游戏设计与交互体验探索，独立制作并发布了多款不同题材与玩法机制的游戏作品。\n\n作为幻造工坊核心创作者之一，一手完成了本社团官方网站的视觉设计、交互架构与前端工程搭建，并持续在个人网站 sayori.org 分享游戏作品、开发笔记与技术实践。",
-      "specialties": ["独立游戏制作", "玩法与系统设计", "全栈前端工程", "官网架构搭建"],
-      "avatar": "https://blog.sayori.org/_astro/avatar-sayori.B2-NMtDW_VIeu6.webp",
-      "url": "https://sayori.org"
+      "role": "独立游戏制作 · 全栈与工具工程 · 社团联合发起人",
+      "badge": "联合发起人 · 核心创作者",
+      "bio": "浙江科技大学数字媒体技术专业在读，专注 Godot 独立游戏制作、时间回溯与多窗口 Meta 交互机制设计、叙事解谜及开发工具链构建。\n\n已完成 10+ 场 Game Jam 与多款可在线试玩的原创游戏，代表作《梦醒边界》荣获 GodotHub 第三届开发大赛命题 Jam 赛道二等奖；开源 Godot 模块化存档插件 Enhanced Save System；独立运营个人站「Amiya的书桌」(sayori.org)、XY-Amiya Studio 工作室、技术博客与游戏开发资源导航站，并负责幻造工坊社团官网的视觉设计、交互架构与前端工程搭建。",
+      "specialties": ["Godot 4 独立游戏", "时间与多窗口机制", "Game Jam 实战", "全栈工程与开源工具", "开发笔记与资源整理"],
+      "highlights": [
+        "《梦醒边界》获 GodotHub 第三届开发大赛命题 Jam 赛道二等奖",
+        "独立开发《DelayTrace》《TimeRewindLinker》《Last Minute Echo》等多款可玩作品",
+        "创建并维护 XY-Amiya Studio、Amiya的书桌博客与 200+ 条游戏开发资源导航站",
+        "主导幻造工坊社团章程筹备、Godot 教程体系整理与社团官网全栈搭建"
+      ],
+      "avatar": "/images/avatar-amiya.webp",
+      "url": "https://sayori.org",
+      "links": [
+        { "label": "个人主页 · sayori.org", "url": "https://sayori.org/" },
+        { "label": "个人工作室 · XY-Amiya Studio", "url": "https://studio.sayori.org/" },
+        { "label": "开发博客 · blog.sayori.org", "url": "https://blog.sayori.org/" },
+        { "label": "资源导航 · nav.sayori.org", "url": "https://nav.sayori.org/" },
+        { "label": "itch.io 作品页", "url": "https://amiya-desi.itch.io/" },
+        { "label": "GitHub · Amiyadesi", "url": "https://github.com/Amiyadesi" }
+      ]
+    },
+    {
+      "id": "helen",
+      "name": "就是Helen",
+      "role": "独立游戏开发 · 像素美术与动画 · 游戏编曲 · B站开发日志 UP主",
+      "badge": "优秀社员 · 全能型创作者",
+      "bio": "游戏爱好者与全能型独立游戏创作者，「会游戏开发，一点画画和一点点编曲」。深耕 Unity 2D 独立游戏全流程研发，擅长将细腻的像素画面、场景氛围光影与高交互性的玩法系统融为一体。\n\n在 Bilibili 持续更新 30+ 期《游戏开发日志》，独立完成了包含昼夜路灯光影、四季风雪天气、水体与划船、垂钓、耕种收获、自行车骑行、背包与动态 UI 在内的温馨治愈向沙盒 RPG 原型；曾组队参加 034 GameJam 挑战赛创作平台解谜游戏《送034回家》，并持续探索角色插画手绘与原创游戏配乐制作。",
+      "specialties": ["Unity 2D 游戏开发", "昼夜光影与沙盒系统", "像素美术与 UI 动画", "Game Jam 平台解谜", "角色绘画与游戏编曲"],
+      "highlights": [
+        "B站连载 30+ 期《游戏开发日志》，累计收获数万播放与超两千点赞支持",
+        "独立实装 2D 动态路灯光照、水体划船、四季垂钓、耕种、背包与骑行等完整沙盒系统",
+        "034 GameJam 参赛作品《送034回家》核心开发，实现三角色相连与能力共享解谜机制",
+        "兼修程序实现、2D 场景与角色手绘、UI 动态交互及游戏原创编曲探索"
+      ],
+      "avatar": "/images/avatar-helen.jpg",
+      "url": "https://space.bilibili.com/269723498",
+      "links": [
+        { "label": "Bilibili 主页 · 就是Helen", "url": "https://space.bilibili.com/269723498" },
+        { "label": "开发日志代表作 · 夜晚路灯光影", "url": "https://www.bilibili.com/video/BV1Rja86RE6W/" },
+        { "label": "开发日志 · 风雪垂钓与天气系统", "url": "https://www.bilibili.com/video/BV177jA6jEMX/" },
+        { "label": "034 GameJam 作品 · 送034回家", "url": "https://www.bilibili.com/video/BV1yPwxzYEpe/" }
+      ]
     }
   ]
 }
