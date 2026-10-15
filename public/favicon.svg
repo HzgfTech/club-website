@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none" role="img" aria-label="幻造工坊视觉标识提案">
-  <rect width="80" height="80" rx="22" fill="#345DF5"/>
-  <path d="M20 22h16v14H20zm24 0h16v38H44zM20 44h16v16H20z" fill="white"/>
-  <path d="M20 36h40v8H20z" fill="#BDCDFF"/>
-  <path d="m36 22 8 8v14l-8-8z" fill="#BDCDFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none" role="img" aria-label="幻造工坊标识">
+  <rect x="6" y="6" width="68" height="68" fill="#171717"/>
+  <rect x="3" y="3" width="68" height="68" fill="#FF6F61" stroke="#171717" stroke-width="4"/>
+  <path d="M18 20h12v14h14V20h12v34H44V42H30v12H18V20z" fill="#FFFFFF" stroke="#171717" stroke-width="3" stroke-linejoin="miter"/>
+  <rect x="46" y="16" width="12" height="8" fill="#FFD65A" stroke="#171717" stroke-width="2.5"/>
 </svg>
