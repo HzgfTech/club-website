@@ -13,7 +13,6 @@ export function ShowcasePage() {
   const query = params.get('q') ?? ''
   const category = params.get('category') ?? '全部'
   const works = catalog!.works
-  const members = catalog!.members
   const selected = works.find(work => work.id === id)
   const backParams = new URLSearchParams(params); backParams.delete('id')
   const back = '/works.html' + (backParams.size ? `?${backParams}` : '')
@@ -23,7 +22,6 @@ export function ShowcasePage() {
     if (!selected) {
       return <EmptyState icon={<Gamepad2 />} title="作品不存在"><Button asChild variant="outline"><a href="/works.html">返回作品展</a></Button></EmptyState>
     }
-    const creatorMember = members.find(m => selected.author.includes(m.name))
     return <div className="inner-page">
       <BackLink to={back}>返回作品展</BackLink>
       <div className="work-detail">
@@ -37,14 +35,7 @@ export function ShowcasePage() {
             {selected.category}{selected.engine ? ` · ${selected.engine}` : ''}{selected.status ? ` / ${selected.status}` : ''}
           </p>
           <h1>{selected.title}</h1>
-          <p className="work-detail__author">
-            创作者：{selected.author}
-            {creatorMember && (
-              <a href={`/member.html?id=${creatorMember.id}`} className="studio-text-link">
-                查看档案<ArrowUpRight size={14} />
-              </a>
-            )}
-          </p>
+          <p className="work-detail__author">创作者：{selected.author}</p>
           <p className="detail-intro">{selected.summary}</p>
           {selected.tags && (
             <div className="studio-tags">
@@ -65,7 +56,7 @@ export function ShowcasePage() {
       </div>
 
       <div className="detail-body">
-        <h2>关于作品</h2>
+        <h2>作品介绍</h2>
         <p className="record-content">{selected.detail ?? selected.summary}</p>
       </div>
     </div>
@@ -77,7 +68,7 @@ export function ShowcasePage() {
   )
 
   return <div className="inner-page">
-    <PageHeading title="作品展" description="社团成员制作的独立游戏、Game Jam 作品、开发日志与开源工具。">
+    <PageHeading title="作品展" description="社团成员制作的独立游戏、民俗解谜 ARG、Game Jam 作品与开源工具。">
       <button type="button" className="studio-btn studio-btn--primary" onClick={() => setContact('work')}>
         提交作品<ArrowUpRight size={16} />
       </button>
@@ -122,10 +113,7 @@ export function ShowcasePage() {
               )}
               <div className="work-tile__foot">
                 <span>创作者：{work.author}</span>
-                <div className="work-tile__links">
-                  <a href={`/work.html?id=${work.id}${params.size ? '&' + params : ''}`} className="studio-text-link">查看详情<ArrowUpRight size={15} /></a>
-                  <a href={work.url} target="_blank" rel="noopener noreferrer" className="studio-text-link">打开链接<ExternalLink size={14} /></a>
-                </div>
+                <a href={`/work.html?id=${work.id}${params.size ? '&' + params : ''}`} className="studio-text-link">查看详情<ArrowUpRight size={15} /></a>
               </div>
             </div>
           </article>
@@ -134,13 +122,6 @@ export function ShowcasePage() {
     ) : (
       <NoResults onClear={clear} />
     )}
-
-    <div className="external-studios-bar">
-      <span>创作者站点：</span>
-      <a href="https://studio.sayori.org/" target="_blank" rel="noopener noreferrer" className="studio-text-link">XY-Amiya Studio<ArrowUpRight size={14} /></a>
-      <a href="https://amiya-desi.itch.io/" target="_blank" rel="noopener noreferrer" className="studio-text-link">Amiya_desi itch.io<ArrowUpRight size={14} /></a>
-      <a href="https://space.bilibili.com/269723498" target="_blank" rel="noopener noreferrer" className="studio-text-link">就是Helen · B站开发日志<ArrowUpRight size={14} /></a>
-    </div>
   </div>
 }
 
@@ -194,7 +175,7 @@ export function MembersPage() {
 
         {selected.links && selected.links.length > 0 && (
           <div className="member-section-block">
-            <h3>外部链接</h3>
+            <h3>外部主页</h3>
             <div className="member-links-grid">
               {selected.links.map(link => (
                 <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="member-link-box">
@@ -208,7 +189,7 @@ export function MembersPage() {
       </div>
 
       {memberWorks.length > 0 && (
-        <section className="studio-section">
+        <section className="studio-section studio-section--last">
           <div className="studio-section__head">
             <h2>参与作品</h2>
           </div>
@@ -222,7 +203,6 @@ export function MembersPage() {
                   <p className="work-tile__meta">{work.category}{work.engine ? ` · ${work.engine}` : ''}</p>
                   <h3><a href={`/work.html?id=${work.id}`}>{work.title}</a></h3>
                   <p className="work-tile__desc">{work.summary}</p>
-                  <a href={`/work.html?id=${work.id}`} className="studio-text-link">查看作品<ArrowUpRight size={14} /></a>
                 </div>
               </article>
             ))}
@@ -237,7 +217,7 @@ export function MembersPage() {
   )
 
   return <div className="inner-page">
-    <PageHeading title="优秀社员" description="独立游戏制作、程序、美术与音乐创作者档案。">
+    <PageHeading title="优秀社员" description="社团核心独立游戏制作人、程序、叙事与美术创作者档案。">
       <button type="button" className="studio-btn studio-btn--primary" onClick={() => setContact('member')}>
         提交社员资料<ArrowUpRight size={16} />
       </button>
@@ -249,53 +229,29 @@ export function MembersPage() {
 
     {filtered.length ? (
       <div className="member-library">
-        {filtered.map(member => {
-          const memberWorks = works.filter(w => w.author.includes(member.name))
-          return (
-            <article key={member.id} className="member-card">
-              <div className="member-card__top">
-                <a href={`/member.html?id=${member.id}`} className="member-avatar">
-                  {member.avatar ? <img src={member.avatar} alt={member.name} loading="lazy" /> : member.name.slice(0, 1)}
-                </a>
-                <div className="member-card__heading">
-                  {member.badge && <p className="work-tile__meta">{member.badge}</p>}
-                  <h2><a href={`/member.html?id=${member.id}`}>{member.name}</a></h2>
-                  <p className="member-role">{member.role}</p>
-                </div>
-                <a href={`/member.html?id=${member.id}`} className="studio-btn studio-btn--secondary">
-                  查看档案<ArrowUpRight size={15} />
-                </a>
+        {filtered.map(member => (
+          <article key={member.id} className="member-card">
+            <div className="member-card__top">
+              <a href={`/member.html?id=${member.id}`} className="member-avatar">
+                {member.avatar ? <img src={member.avatar} alt={member.name} loading="lazy" /> : member.name.slice(0, 1)}
+              </a>
+              <div className="member-card__heading">
+                {member.badge && <p className="work-tile__meta">{member.badge}</p>}
+                <h2><a href={`/member.html?id=${member.id}`}>{member.name}</a></h2>
+                <p className="member-role">{member.role}</p>
               </div>
+              <a href={`/member.html?id=${member.id}`} className="studio-btn studio-btn--secondary">
+                查看档案<ArrowUpRight size={15} />
+              </a>
+            </div>
 
-              <p className="member-bio">{member.bio}</p>
+            <p className="member-bio">{member.bio}</p>
 
-              <div className="studio-tags">
-                {member.specialties.map(tag => <span key={tag}>{tag}</span>)}
-              </div>
-
-              {memberWorks.length > 0 && (
-                <div className="member-card__works">
-                  <span className="meta-label">作品：</span>
-                  {memberWorks.map(work => (
-                    <a key={work.id} href={`/work.html?id=${work.id}`} className="studio-chip">
-                      {work.title.split('·')[0].trim()}<ArrowUpRight size={12} />
-                    </a>
-                  ))}
-                </div>
-              )}
-
-              {member.links && member.links.length > 0 && (
-                <div className="member-card__links">
-                  {member.links.map(link => (
-                    <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="studio-text-link">
-                      {link.label}<ExternalLink size={13} />
-                    </a>
-                  ))}
-                </div>
-              )}
-            </article>
-          )
-        })}
+            <div className="studio-tags">
+              {member.specialties.map(tag => <span key={tag}>{tag}</span>)}
+            </div>
+          </article>
+        ))}
       </div>
     ) : (
       <NoResults onClear={clear} />

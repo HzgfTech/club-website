@@ -103,6 +103,22 @@
       "detail": "《梦醒边界》（Wake Up at the Border）是社员 Amiya_desi 围绕「Wake」主题独立完成的叙事解谜与冒险游戏，在 GodotHub 第三届游戏开发大赛命题 Jam 赛道中荣获二等奖。\n\n游戏将多分支对话演出、场景机关解谜与情绪化的战斗机制结合在一起。玩家在现实与梦境交错的边界醒来，通过与边境角色的互动收集线索、解开空间谜题。该项目也是创作者从教程跟练走向完整原创原型的里程碑作品，沉淀了状态机架构、对话系统接入与 Git 版本管理的完整经验。"
     },
     {
+      "id": "fifth-fortune-slip",
+      "title": "第五张财签 · 杭州民俗数字档案馆",
+      "summary": "以杭州民俗与民国商号旧账为底色的网页 ARG 互动解谜作品。通过馆藏检索、碑拓比对与磁带录音拼合线索，揭开五笔“零元订单”背后的故事。",
+      "category": "叙事解谜",
+      "author": "Lycoris Null",
+      "url": "https://briandolph.xyz/arg_01/",
+      "cover": "/images/work-arg-01.webp",
+      "engine": "Web ARG · 互动叙事",
+      "status": "打开即玩 · 四结局",
+      "featured": true,
+      "tags": ["民俗解谜 ARG", "非线性叙事", "馆藏检索交互", "四重结局"],
+      "sourceUrl": "https://briandolph.xyz/",
+      "sourceLabel": "彼岸时墟游戏工作室",
+      "detail": "《第五张财签》是由社员 Lycoris Null（彼岸时墟游戏工作室）独立企划开发的网页互动解谜（ARG）作品。\n\n游戏以「杭州民俗数字档案馆」公开检索系统为载体，玩家通过查阅《万和号流水簿》86 页残卷、北高峰施食台碑拓、五路财神方位招贴与后间磁带录音，在零散的民俗文献与勘误记录中抽丝剥茧，还原一段民国十六年城南商号五笔“零元订单”背后的隐秘往事。全作包含四个环环相扣的谜题与四档结局（含隐藏结局），打开浏览器即可直接游玩。"
+    },
+    {
       "id": "delaytrace",
       "title": "DelayTrace · 延迟轨迹",
       "summary": "围绕「三秒时间延迟、行动轨迹录制与过去残影回放」展开的 Godot 空间动作解谜作品，与过去的自己协同破局。",
@@ -258,6 +274,24 @@
         { "label": "开发日志代表作 · 夜晚路灯光影", "url": "https://www.bilibili.com/video/BV1Rja86RE6W/" },
         { "label": "开发日志 · 风雪垂钓与天气系统", "url": "https://www.bilibili.com/video/BV177jA6jEMX/" },
         { "label": "034 GameJam 作品 · 送034回家", "url": "https://www.bilibili.com/video/BV1yPwxzYEpe/" }
+      ]
+    },
+    {
+      "id": "lycoris-null",
+      "name": "Lycoris Null",
+      "role": "ARG 互动叙事设计 · 独立游戏开发 · 彼岸时墟游戏工作室主理人",
+      "badge": "优秀社员 · 互动叙事与全栈开发",
+      "bio": "彼岸时墟游戏工作室（briandolph.xyz）主理人，专注于网页互动叙事（ARG）、非线性民俗解谜游戏设计与全栈前端开发。\n\n擅长将在地民俗考据、档案文献伪装与跨媒介解谜机制深度融合，独立完成《第五张财签 · 杭州民俗数字档案馆》的策划、文案、谜题设计与纯静态前端实现，打造“打开浏览器即入局”的沉浸式解谜体验。",
+      "specialties": ["民俗解谜 ARG", "非线性互动叙事", "世界观与谜题设计", "全栈前端工程"],
+      "highlights": [
+        "独立企划并上线民俗解谜 ARG《第五张财签 · 杭州民俗数字档案馆》，设计四重跨卷宗谜题与四档分支结局",
+        "创立「彼岸时墟游戏工作室」(briandolph.xyz)，聚焦游戏原型、互动数字内容与软件研发"
+      ],
+      "avatar": "/images/avatar-lycoris.png",
+      "url": "https://briandolph.xyz",
+      "links": [
+        { "label": "彼岸时墟游戏工作室 · briandolph.xyz", "url": "https://briandolph.xyz/" },
+        { "label": "在线游玩 · 《第五张财签》ARG", "url": "https://briandolph.xyz/arg_01/" }
       ]
     }
   ]

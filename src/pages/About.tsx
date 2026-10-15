@@ -75,7 +75,11 @@ export function AboutPage() {
   const email = club.email
 
   return <div className="inner-page">
-    <PageHeading title="关于幻造工坊" description="浙江科技大学幻造工坊游戏开发社团简介、部门设置与联系方式。" />
+    <PageHeading title="关于幻造工坊" description="浙江科技大学幻造工坊游戏开发社团简介、部门设置与联系方式。">
+      <button type="button" className="studio-btn studio-btn--primary" onClick={() => setContact('contact')}>
+        联系工坊<ArrowUpRight size={16} />
+      </button>
+    </PageHeading>
 
     <section className="about-layout">
       <div className="about-copy">
@@ -85,12 +89,6 @@ export function AboutPage() {
         <p>
           我们提倡<strong>“先做出可玩的东西，再通过试玩继续打磨”</strong>。成员可以从策划、程序、美术或音效切入，在基础工作坊、跨专业小组开发与 Game Jam 比赛中共同完成原创游戏作品。
         </p>
-        <div className="about-links">
-          <a href="/works.html" className="studio-text-link">浏览作品展<ArrowUpRight size={15} /></a>
-          <a href="/members.html" className="studio-text-link">认识优秀社员<ArrowUpRight size={15} /></a>
-          <a href="/resources.html" className="studio-text-link">查看资源库<ArrowUpRight size={15} /></a>
-          <a href="/join.html" className="studio-text-link">加入社团<ArrowUpRight size={15} /></a>
-        </div>
       </div>
 
       <dl className="about-facts">
@@ -166,7 +164,7 @@ export function AboutPage() {
       </div>
     </section>
 
-    <section className="studio-section">
+    <section className="studio-section studio-section--last">
       <div className="studio-section__head">
         <h2>常见问题</h2>
       </div>
@@ -177,23 +175,6 @@ export function AboutPage() {
             <p>{item.a}</p>
           </article>
         ))}
-      </div>
-    </section>
-
-    <section className="contact-band">
-      <div>
-        <h2>联系我们</h2>
-        <p>招新咨询、作品投稿或跨校交流合作。</p>
-      </div>
-      <div className="contact-band__actions">
-        <button type="button" className="studio-btn studio-btn--primary" onClick={() => setContact('contact')}>
-          写信给工坊<ArrowUpRight size={16} />
-        </button>
-        <button type="button" className="studio-btn studio-btn--secondary" onClick={() => copyText(qqGroup, 'QQ 群号已复制')}>
-          QQ 群：{qqGroup}<Copy size={14} />
-        </button>
-        <a href={`tel:${phone}`} className="contact-band__link">电话：{phone}</a>
-        <a href={`mailto:${email}`} className="contact-band__link">{email}</a>
       </div>
     </section>
   </div>
@@ -271,9 +252,6 @@ export function JoinPage() {
       <div className="contact-band__actions">
         <button type="button" className="studio-btn studio-btn--primary" onClick={() => copyText(qqGroup, 'QQ 群号已复制')}>
           复制招新 QQ 群：{qqGroup}<Copy size={14} />
-        </button>
-        <button type="button" className="studio-btn studio-btn--secondary" onClick={() => setContact('join')}>
-          准备加入邮件<ArrowUpRight size={16} />
         </button>
         <a href={`tel:${phone}`} className="contact-band__link">电话：{phone}</a>
         <a href={`mailto:${email}`} className="contact-band__link">{email}</a>

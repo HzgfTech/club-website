@@ -44,28 +44,10 @@ const blogArticles = [
     summary: '详解 Steam Direct 注册、拼音实名、W-8BEN 税务表（预扣税率 30% 降至 10%）与银行回单地址验证流程。',
   },
   {
-    title: 'GMTK Game Jam 赛后总结',
-    category: 'Game Jam 复盘',
-    url: 'https://blog.sayori.org/posts/after-gmtk/',
-    summary: '复盘《Last Minute Echo》限时开发中的场景预制体解耦、范围收缩与完赛策略。',
-  },
-  {
     title: '我的创作资源索引（200+ 书签整理）',
     category: '资源索引',
     url: 'https://blog.sayori.org/posts/resource-index/',
     summary: '汇总游戏配乐、音效、Godot Shader、2D/3D 素材站及使用协议核查方法。',
-  },
-  {
-    title: '18 岁前记录：从零开始学做游戏与第一次 Game Jam',
-    category: '自学路线',
-    url: 'https://blog.sayori.org/posts/before-18-record/',
-    summary: '从 1 小时入门跟练、进阶状态机教程到独立完成获奖作品《梦醒边界》的完整记录。',
-  },
-  {
-    title: '再次启程：联机 Game Jam 开发流与思考',
-    category: '工程实践',
-    url: 'https://blog.sayori.org/posts/re0game-dev-life/',
-    summary: '总结多人联机 Game Jam 的“需求汇总 → 提示词打磨 → 实现 → 试玩迭代”流程与状态同步学习心得。',
   },
 ]
 
@@ -122,16 +104,7 @@ export function ResourcesPage() {
   const visibleWebsites = navWebsites.filter(site => navCategory === '全部' || site.category === navCategory)
 
   return <div className="inner-page">
-    <PageHeading title="资源库" description="Godot 视频教程、游戏开发文章、常用工具导航与社团文档（由 Amiya_desi 提供）。">
-      <div className="heading-links">
-        <a href="https://blog.sayori.org/" target="_blank" rel="noopener noreferrer" className="studio-btn studio-btn--secondary">
-          Amiya的书桌 · 博客<ArrowUpRight size={15} />
-        </a>
-        <a href="https://nav.sayori.org/" target="_blank" rel="noopener noreferrer" className="studio-btn studio-btn--secondary">
-          完整资源导航<ArrowUpRight size={15} />
-        </a>
-      </div>
-    </PageHeading>
+    <PageHeading title="资源库" description="Godot 视频教程、实用开发指南、工具素材导航与社团文档（由 Amiya_desi 提供）。" />
 
     <section className="studio-section">
       <div className="studio-section__head">
@@ -166,15 +139,13 @@ export function ResourcesPage() {
 
     <section className="studio-section">
       <div className="studio-section__head">
-        <h2>开发文章与笔记</h2>
-        <a href="https://blog.sayori.org/" target="_blank" rel="noopener noreferrer" className="studio-text-link">
-          blog.sayori.org（由 Amiya_desi 提供）<ArrowUpRight size={15} />
-        </a>
+        <h2>开发指南与插件清单</h2>
+        <span className="meta-note">源自 blog.sayori.org · 由 Amiya_desi 提供</span>
       </div>
-      <div className="article-grid">
+      <div className="article-grid article-grid--three">
         {blogArticles.map(article => (
           <a key={article.url} href={article.url} target="_blank" rel="noopener noreferrer" className="article-box">
-            <p className="work-tile__meta">{article.category} · 由 Amiya_desi 提供</p>
+            <p className="work-tile__meta">{article.category}</p>
             <h3>{article.title}<ArrowUpRight size={16} /></h3>
             <p>{article.summary}</p>
           </a>
@@ -185,9 +156,7 @@ export function ResourcesPage() {
     <section className="studio-section">
       <div className="studio-section__head">
         <h2>工具与素材导航</h2>
-        <a href="https://nav.sayori.org/" target="_blank" rel="noopener noreferrer" className="studio-text-link">
-          nav.sayori.org（由 Amiya_desi 提供）<ArrowUpRight size={15} />
-        </a>
+        <span className="meta-note">源自 nav.sayori.org · 由 Amiya_desi 提供</span>
       </div>
 
       <div className="filter-tabs nav-filter-tabs" role="group" aria-label="外部导航分类">

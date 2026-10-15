@@ -1,4 +1,4 @@
-import { useEffect, useState, type ComponentType } from 'react'
+import { useEffect, useState, type ComponentType, type MouseEvent } from 'react'
 import { ArrowUpRight, Boxes, Copy, FileText, FolderOpen, Menu, Moon, Search, Sun, Users, WifiOff, X } from 'lucide-react'
 import { Toaster } from 'sonner'
 import { Button } from './components/ui/button'
@@ -62,6 +62,45 @@ export default function App() {
     return () => document.removeEventListener('keydown', keydown)
   }, [])
 
+  // Scroll-reveal & pointer spotlight effects
+  useEffect(() => {
+    if (!catalog) return
+    const targets = document.querySelectorAll<HTMLElement>(
+      '.studio-hero, .studio-section, .page-heading, .work-tile, .work-library__row, .activity-card, .member-card, .article-box, .nav-site-card, .faq-box, .service-row, .process-item, .work-detail, .detail-body, .about-layout, .resource-browser'
+    )
+    const observer = new IntersectionObserver(
+      entries => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+            observer.unobserve(entry.target)
+          }
+        }
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -24px 0px' }
+    )
+    targets.forEach((el, index) => {
+      el.classList.add('reveal-item')
+      el.style.setProperty('--stagger', String(index % 6))
+      observer.observe(el)
+    })
+
+    const handlePointerMove = (e: PointerEvent) => {
+      const card = (e.target as HTMLElement | null)?.closest<HTMLElement>(
+        '.work-tile, .work-library__row, .activity-card, .member-card, .article-box, .nav-site-card, .faq-box, .studio-track-box'
+      )
+      if (!card) return
+      const rect = card.getBoundingClientRect()
+      card.style.setProperty('--mx', `${e.clientX - rect.left}px`)
+      card.style.setProperty('--my', `${e.clientY - rect.top}px`)
+    }
+    window.addEventListener('pointermove', handlePointerMove, { passive: true })
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('pointermove', handlePointerMove)
+    }
+  }, [catalog, currentRoute, language])
+
   const active = (route: string) => {
     if (route === '/') return currentRoute === '/'
     if (route === '/works') return currentRoute === '/works' || currentRoute === '/work'
@@ -80,11 +119,27 @@ export default function App() {
     setLanguage(next)
   }
 
+  const handleThemeSwitch = (event: MouseEvent<HTMLButtonElement>) => {
+    document.documentElement.style.setProperty('--tx', `${event.clientX}px`)
+    document.documentElement.style.setProperty('--ty', `${event.clientY}px`)
+    const doc = document as Document & { startViewTransition?: (cb: () => void) => void }
+    if (doc.startViewTransition && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      doc.startViewTransition(() => toggleTheme())
+    } else {
+      toggleTheme()
+    }
+  }
+
   const email = catalog?.club.email ?? 'hzgftech@protonmail.com'
   const qqGroup = catalog?.club.qqGroup ?? '1130062117'
   const phone = catalog?.club.phone ?? '19730031977'
 
   return <div className="club-site">
+    <div className="ambient-canvas" aria-hidden="true">
+      <span className="ambient-orb ambient-orb--coral" />
+      <span className="ambient-orb ambient-orb--teal" />
+      <span className="ambient-orb ambient-orb--amber" />
+    </div>
     <a href="#main-content" className="skip-link">{language === 'en' ? 'Skip to content' : '跳到主要内容'}</a>
     <header className="site-header">
       <div className="site-header__inner">
@@ -116,7 +171,7 @@ export default function App() {
           <Button variant="ghost" size="icon" aria-label={language === 'en' ? 'Search site' : '全站搜索'} title="Ctrl + K" onClick={() => setSearch(true)}>
             <Search size={18} />
           </Button>
-          <Button variant="ghost" size="icon" aria-label={language === 'en' ? 'Switch theme' : `切换到${theme === 'light' ? '深' : '浅'}色模式`} onClick={toggleTheme}>
+          <Button variant="ghost" size="icon" aria-label={language === 'en' ? 'Switch theme' : `切换到${theme === 'light' ? '深' : '浅'}色模式`} onClick={handleThemeSwitch}>
             {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
           </Button>
           <a href="/join.html" className="join-link">{language === 'en' ? 'Join Us' : '加入社团'}<ArrowUpRight size={15} /></a>
@@ -143,15 +198,7 @@ export default function App() {
             <a href={`mailto:${email}`} className="footer-contact-pill">{email}</a>
           </div>
         </div>
-
-        <nav className="footer-links" aria-label="外部链接">
-          <a href="https://studio.sayori.org/" target="_blank" rel="noopener noreferrer">XY-Amiya Studio<ArrowUpRight size={13} /></a>
-          <a href="https://blog.sayori.org/" target="_blank" rel="noopener noreferrer">Amiya的书桌<ArrowUpRight size={13} /></a>
-          <a href="https://nav.sayori.org/" target="_blank" rel="noopener noreferrer">资源导航<ArrowUpRight size={13} /></a>
-          <a href="https://space.bilibili.com/269723498" target="_blank" rel="noopener noreferrer">就是Helen · B站<ArrowUpRight size={13} /></a>
-        </nav>
-
-        <p className="footer-copy">© 2026 幻造工坊</p>
+        <p className="footer-copy">© 2026 幻造工坊 · Huanzao Workshop</p>
       </div>
     </footer>
 
