@@ -1,12 +1,11 @@
 {
   "club": {
-    "name": "幻造工坊",
-    "fullName": "浙江科技大学幻造工坊游戏开发社团",
+    "name": "Amiya_desi 个人制作的社团宣传网站",
+    "fullName": "Amiya_desi 个人制作的社团宣传网站",
     "university": "浙江科技大学",
-    "category": "学术科技类学生社团",
+    "category": "游戏开发交流与宣传展示",
     "motto": "以创为乐，向暖生活，心怀美好，手创未来。",
-    "email": "hzgftech@protonmail.com",
-    "phone": "19730031977",
+    "email": "hzgftech@outlook.com",
     "qqGroup": "1130062117"
   },
   "resources": [
@@ -20,7 +19,7 @@
       "updated": "2026-10-14",
       "provider": "由 Amiya_desi 提供",
       "externalUrl": "https://blog.sayori.org/posts/godot-useful-plugins/",
-      "content": "整合 Godot 4 零基础 1 小时入门视频（BV12htQeQEMs）、《勇者传说》30 集横版动作游戏进阶教程（BV1SP411m7aj），以及 DialogueManager、SceneManager、PhantomCamera、SoundManager、Enhanced Save System 等实战插件与 Game Jam 原型开发建议。\n\n由幻造工坊社员 Amiya_desi 结合多场 Game Jam 实战经验整理提供。"
+      "content": "整合 Godot 4 零基础 1 小时入门视频（BV12htQeQEMs）、《勇者传说》30 集横版动作游戏进阶教程（BV1SP411m7aj），以及 DialogueManager、SceneManager、PhantomCamera、SoundManager、Enhanced Save System 等实战插件与 Game Jam 原型开发建议。\n\n由社团宣传网站社员 Amiya_desi 结合多场 Game Jam 实战经验整理提供。"
     },
     {
       "id": "indie-gamedev-resource-nav",
@@ -36,86 +35,84 @@
     },
     {
       "id": "club-charter-and-guide",
-      "title": "幻造工坊社团章程与学期活动指南",
-      "description": "浙江科技大学幻造工坊游戏开发社团定位、组织机构、四阶段工作坊计划与安全准则摘要。",
+      "title": "社团筹备章程与学期活动指南",
+      "description": "游戏开发社团筹备定位、组织分工、四阶段工作坊计划与安全准则摘要。",
       "category": "社团资料",
       "format": "MD",
       "file": "club-charter-and-guide.md",
       "updated": "2026-10-14",
-      "content": "依据《浙江科技大学幻造工坊游戏开发社团章程》《社团成立答辩稿》及《安全管理细则》整理，涵盖学术科技类定位、“以创为乐，向暖生活，心怀美好，手创未来”宗旨、四大部门职能、一学期试运行路线图、零会费原则及作品著作权保护条款。"
+      "content": "涵盖游戏开发社团筹备定位、“以创为乐，向暖生活，心怀美好，手创未来”宗旨、四大部门职能、一学期试运行路线图、零会费原则及作品著作权保护条款。"
     },
     {
       "id": "project-submission",
       "title": "游戏作品投稿资料",
-      "description": "整理玩法、开发进度与可游玩的游戏链接，申请登上社团作品展。",
+      "description": "整理游戏、美术画作或音乐编曲作品信息，申请登上社团作品展。",
       "category": "投稿模板",
       "format": "MD",
       "file": "project-submission.md",
       "updated": "2026-10-14",
-      "content": "填写游戏名称、作者或团队、创作方向（策划 / 程序 / 美术 / 音乐）、开发引擎、玩法简介、当前进度和可访问的游戏链接。\n\n确认作品展示授权后，可通过官网在线生成邮件发送至 hzgftech@protonmail.com，或在 GitHub 仓库提交 Pull Request，也可加入社团 QQ 群 1130062117 联系管理员。"
+      "content": "填写作品名称、作者或团队、作品类别（游戏 / 美术画作 / 音乐编曲）、使用引擎或创作工具、作品简介和可访问的 HTTPS 链接（每人最多展示 2 款代表作）。\n\n确认作品展示授权后，可通过官网在线代发至社团邮箱 hzgftech@outlook.com，或在 GitHub 仓库提交 Pull Request，也可加入社团 QQ 群 1130062117 联系管理员。"
     },
     {
       "id": "member-profile",
       "title": "优秀社员展示资料",
-      "description": "整理开发方向、个人简介和代表游戏，展示在优秀社员档案页。",
+      "description": "整理开发方向、个人简介和代表作品，展示在优秀社员档案页。",
       "category": "投稿模板",
       "format": "MD",
       "file": "member-profile.md",
       "updated": "2026-10-14",
-      "content": "填写姓名或公开昵称、游戏开发方向（策划 / 程序 / 美术 / 音乐）、个人简介、代表游戏或开发作品名称与链接，以及联系方式。\n\n确认公开授权后，可通过官网在线生成邮件发送至 hzgftech@protonmail.com，或在 GitHub 仓库提交 Pull Request。"
+      "content": "填写姓名或公开昵称、游戏开发方向（策划 / 程序 / 美术 / 音乐）、个人简介、代表作品名称与链接，以及联系方式。\n\n确认公开授权后，可通过官网在线代发至社团邮箱 hzgftech@outlook.com，或在 GitHub 仓库提交 Pull Request。"
     },
     {
       "id": "forge-mark",
-      "title": "工坊视觉标识",
-      "description": "幻造工坊矢量标识。",
+      "title": "网站视觉标识",
+      "description": "宣传网站矢量标识。",
       "category": "品牌素材",
       "format": "SVG",
       "file": "forge-mark.svg",
       "updated": "2026-10-14",
-      "content": "适合网站、联系卡与社团资料的矢量标识。"
+      "content": "适合网站、联系卡与宣传资料的矢量标识。"
     },
     {
       "id": "club-contact",
-      "title": "社团联系卡（邮箱 / 电话 / QQ群）",
-      "description": "一键导入幻造工坊邮箱、联系电话与招新交流 QQ 群。",
+      "title": "社团联系卡（邮箱 / QQ群）",
+      "description": "一键导入联系邮箱与交流 QQ 群。",
       "category": "社团资料",
       "format": "VCF",
       "file": "club-contact.vcf",
       "updated": "2026-10-14",
-      "content": "浙江科技大学幻造工坊游戏开发社团\n联系邮箱：hzgftech@protonmail.com\n联系电话：19730031977\n社团交流 QQ 群：1130062117\n\n下载联系卡，可导入手机或电脑通讯录。"
+      "content": "Amiya_desi 个人制作的社团宣传网站\n联系邮箱：hzgftech@outlook.com\n社团交流 QQ 群：1130062117\n\n下载联系卡，可导入手机或电脑通讯录。"
     }
   ],
   "works": [
     {
       "id": "fifth-fortune-slip",
       "title": "第五张财签 · 杭州民俗数字档案馆",
-      "summary": "以杭州民俗与民国商号旧账为底色的网页 ARG 互动解谜作品。通过馆藏检索、碑拓比对与磁带录音拼合线索，揭开五笔“零元订单”背后的故事。",
-      "category": "叙事解谜",
+      "summary": "以杭州民俗与民国商号旧账为底色的网页 ARG 互动解谜游戏。通过馆藏检索、碑拓比对与磁带录音拼合线索，揭开五笔“零元订单”背后的故事。",
+      "category": "游戏",
       "author": "Lycoris Null",
       "url": "https://briandolph.xyz/arg_01/",
       "cover": "/images/work-arg-01.webp",
       "engine": "Web ARG · 互动叙事",
       "status": "打开即玩 · 四结局",
       "featured": true,
-      "tracks": ["策划", "程序", "美术"],
       "tags": ["民俗解谜 ARG", "非线性叙事", "馆藏检索交互", "四重结局"],
       "sourceUrl": "https://briandolph.xyz/",
       "sourceLabel": "彼岸时墟游戏工作室",
-      "detail": "《第五张财签》是由社员 Lycoris Null（彼岸时墟游戏工作室）独立企划开发的网页互动解谜（ARG）作品。\n\n游戏以「杭州民俗数字档案馆」公开检索系统为载体，玩家通过查阅《万和号流水簿》86 页残卷、北高峰施食台碑拓、五路财神方位招贴与后间磁带录音，在零散的民俗文献与勘误记录中抽丝剥茧，还原一段民国十六年城南商号五笔“零元订单”背后的隐秘往事。全作包含四个环环相扣的谜题与四档结局（含隐藏结局），打开浏览器即可直接游玩。"
+      "detail": "《第五张财签》是由社员 Lycoris Null（彼岸时墟游戏工作室）独立企划开发的网页互动解谜（ARG）游戏。\n\n游戏以「杭州民俗数字档案馆」公开检索系统为载体，玩家通过查阅《万和号流水簿》86 页残卷、北高峰施食台碑拓、五路财神方位招贴与后间磁带录音，在零散的民俗文献与勘误记录中抽丝剥茧，还原一段民国十六年城南商号五笔“零元订单”背后的隐秘往事。全作包含四个环环相扣的谜题与四档结局（含隐藏结局），打开浏览器即可直接游玩。"
     },
     {
       "id": "delaytrace",
       "title": "DelayTrace · 延迟轨迹",
-      "summary": "围绕「三秒时间延迟、行动轨迹录制与过去残影回放」展开的 Godot 空间动作解谜作品，与过去的自己协同破局。",
-      "category": "机制解谜",
+      "summary": "围绕「三秒时间延迟、行动轨迹录制与过去残影回放」展开的 Godot 空间动作解谜游戏，与过去的自己协同破局。",
+      "category": "游戏",
       "author": "Amiya_desi",
       "url": "https://amiya-desi.itch.io/delaytrace",
       "cover": "/images/work-delaytrace.png",
       "engine": "Godot 4",
       "status": "公开试玩 · 工作室精选",
       "featured": true,
-      "tracks": ["策划", "程序"],
-      "tags": ["Godot 4", "时间延迟机制", "轨迹回放", "Game Jam 佳作", "Web 试玩"],
+      "tags": ["Godot 4", "时间延迟机制", "轨迹回放", "Web 试玩"],
       "sourceUrl": "https://studio.sayori.org/work.html?id=delaytrace",
       "sourceLabel": "XY-Amiya Studio 作品档案",
       "detail": "「你的过去晚了三秒——但仍在追赶你。」\n\n《DelayTrace》收录于 XY-Amiya Studio（studio.sayori.org）精选作品集，是一款聚焦核心时间机制的 Godot 动作解谜小游戏。玩家的每一次移动与交互都会被实时记录，并在三秒后化作“时间残影”精确重演。关卡设计要求玩家同时规划当下路径与三秒后的残影位置，利用双时间线联动触发机关、跨越障碍并避开悖论碰撞。"
@@ -123,49 +120,46 @@
     {
       "id": "helen-cozy-sandbox",
       "title": "微光岛屿 · 2D 温馨治愈沙盒开发企划",
-      "summary": "由社员「就是Helen」独立研发并连载 30+ 期开发日志的 2D 治愈向沙盒 RPG，实装昼夜路灯光影、四季风雪、划船钓鱼与耕种系统。",
-      "category": "沙盒冒险",
+      "summary": "由社员「就是Helen」独立研发并连载 30+ 期开发日志的 2D 治愈向沙盒 RPG 游戏，实装昼夜路灯光影、四季风雪、划船钓鱼与耕种系统。",
+      "category": "游戏",
       "author": "就是Helen",
       "url": "https://www.bilibili.com/video/BV1Rja86RE6W/",
       "cover": "/images/work-helen-sandbox.jpg",
       "engine": "Unity 2D",
       "status": "30+ 期开发日志连载",
       "featured": true,
-      "tracks": ["程序", "美术", "音乐"],
       "tags": ["Unity 2D", "昼夜动态光影", "划船与钓鱼", "种田与背包系统", "原创像素与UI"],
       "sourceUrl": "https://space.bilibili.com/269723498",
       "sourceLabel": "访问 就是Helen 的 B站主页",
-      "detail": "《微光岛屿》（2D 温馨治愈向沙盒开发企划）是社员「就是Helen」在 Bilibili 持续记录超过 30 期《游戏开发日志》的长期独立项目。\n\n作品从零搭建了完整的 2D 沙盒生活与探索循环：包含自然过渡的昼夜交替与夜晚路灯 2D 光照系统、细腻的水体波纹与木船划行、晴雨及暴雪天气下的垂钓玩法、土地开垦与作物丰收、自行车骑行代步，以及手绘风格的背包交互与动态 UI 动画，展现了扎实的全栈独立开发与美术把控能力。"
+      "detail": "《微光岛屿》（2D 温馨治愈向沙盒开发企划）是社员「就是Helen」在 Bilibili 持续记录超过 30 期《游戏开发日志》的长期独立游戏项目。\n\n作品从零搭建了完整的 2D 沙盒生活与探索循环：包含自然过渡的昼夜交替与夜晚路灯 2D 光照系统、细腻的水体波纹与木船划行、晴雨及暴雪天气下的垂钓玩法、土地开垦与作物丰收、自行车骑行代步，以及手绘风格的背包交互与动态 UI 动画，展现了扎实的全栈独立开发与美术把控能力。"
     },
     {
       "id": "timerewindlinker",
       "title": "TimeRewindLinker · 时间回溯连接器",
-      "summary": "将时间倒流、动作回放与跨越时空的「连接光束」融为一体的 2D 物理空间解谜实验，内含 11 个递进式烧脑关卡。",
-      "category": "机制解谜",
+      "summary": "将时间倒流、动作回放与跨越时空的「连接光束」融为一体的 2D 物理空间解谜游戏，内含 11 个递进式烧脑关卡。",
+      "category": "游戏",
       "author": "Amiya_desi",
       "url": "https://amiya-desi.itch.io/time-rewind-linker",
       "cover": "/images/work-timerewind.png",
       "engine": "Godot 4",
       "status": "完整 11 关可玩",
       "featured": true,
-      "tracks": ["策划", "程序"],
       "tags": ["Godot 4", "时间倒流", "光束连接机制", "11 关完整设计"],
       "sourceUrl": "https://studio.sayori.org/work.html?id=timerewindlinker",
       "sourceLabel": "XY-Amiya Studio 作品档案",
-      "detail": "《TimeRewindLinker》是一次围绕“时间回声与空间连接”展开的深度机制实验。玩家不仅可以倒流时间创造过去行动的分身回声（Echo），还能在本体与过去回声之间发射一条具备物理与逻辑判定效果的「连接光束（Connection Beam）」。\n\n通过移动本体与时间分身的相对位置，玩家可以利用连接光束切割机关、传导能量或搭建桥梁，在 11 个精心打磨的 2D 空间谜题中体验高密度的顿悟感。"
+      "detail": "《TimeRewindLinker》是一次围绕“时间回声与空间连接”展开的深度解谜游戏。玩家不仅可以倒流时间创造过去行动的分身回声（Echo），还能在本体与过去回声之间发射一条具备物理与逻辑判定效果的「连接光束（Connection Beam）」。\n\n通过移动本体与时间分身的相对位置，玩家可以利用连接光束切割机关、传导能量或搭建桥梁，在 11 个精心打磨的 2D 空间谜题中体验高密度的顿悟感。"
     },
     {
       "id": "helen-034-gamejam",
       "title": "送034回家 · 三角色相连平台解谜",
       "summary": "034 GameJam 挑战赛团队作品：操控「0、3、4」三个角色两两相连、共享各自特殊能力，在视角切换与协作中闯关。",
-      "category": "机制解谜",
+      "category": "游戏",
       "author": "就是Helen（团队作品）",
       "url": "https://www.bilibili.com/video/BV1yPwxzYEpe/",
       "cover": "/images/work-helen-034.jpg",
       "engine": "Unity 2D",
       "status": "034 GameJam 参赛作",
       "featured": false,
-      "tracks": ["策划", "程序"],
       "tags": ["034 GameJam", "平台跳跃解谜", "多角色能力共享", "团队协作开发"],
       "sourceUrl": "https://space.bilibili.com/269723498",
       "sourceLabel": "查看 B站实机演示与下载",
@@ -179,12 +173,12 @@
       "role": "独立游戏制作 · 全栈与工具工程 · 社团联合发起人",
       "badge": "联合发起人 · 核心创作者",
       "tracks": ["策划", "程序"],
-      "bio": "浙江科技大学数字媒体技术专业在读，专注 Godot 独立游戏制作、时间回溯与多窗口 Meta 交互机制设计、叙事解谜及开发工具链构建。\n\n已完成 10+ 场 Game Jam 与多款可在线试玩的原创游戏，代表作包括《DelayTrace》《TimeRewindLinker》等机制解谜作品；独立运营个人站「Amiya的书桌」(sayori.org)、XY-Amiya Studio 工作室、技术博客与游戏开发资源导航站，并负责幻造工坊社团官网的视觉设计、交互架构与前端工程搭建。",
+      "bio": "浙江科技大学数字媒体技术专业在读，专注 Godot 独立游戏制作、时间回溯与多窗口 Meta 交互机制设计、叙事解谜及开发工具链构建。\n\n已完成 10+ 场 Game Jam 与多款可在线试玩的原创游戏，代表作包括《DelayTrace》《TimeRewindLinker》等机制解谜作品；独立运营个人站「Amiya的书桌」(sayori.org)、XY-Amiya Studio 工作室、技术博客与游戏开发资源导航站，并独立制作了本社团宣传网站。",
       "specialties": ["Godot 4 独立游戏", "时间与空间解谜机制", "Game Jam 实战", "全栈工程与开源工具", "开发笔记与资源整理"],
       "highlights": [
         "独立开发《DelayTrace》《TimeRewindLinker》等多款核心时间机制解谜作品",
         "创建并维护 XY-Amiya Studio、Amiya的书桌博客与 200+ 条游戏开发资源导航站",
-        "主导幻造工坊社团章程筹备、Godot 教程体系整理与社团官网全栈搭建"
+        "主导社团筹备材料整理、Godot 教程体系汇总与本社团宣传网站全栈搭建"
       ],
       "avatar": "/images/avatar-amiya.webp",
       "url": "https://sayori.org",

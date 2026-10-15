@@ -6,7 +6,7 @@ import { parseCatalog, publicUrl, fileSize } from '../src/lib/catalog.ts'
 const actual = JSON.parse(readFileSync(new URL('../public/data/catalog.json', import.meta.url), 'utf8'))
 test('实际公开资料可加载，资源大小来自文件', () => {
   const data = parseCatalog(actual)
-  assert.equal(data.club.email, 'hzgftech@protonmail.com')
+  assert.equal(data.club.email, 'hzgftech@outlook.com')
   assert.equal(data.resources.length, actual.resources.length)
   assert.equal(data.works.length, actual.works.length)
   assert.equal(data.members.length, actual.members.length)

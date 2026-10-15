@@ -10,9 +10,9 @@ import { copyText, saveText, useStudio, type SubmissionKind } from '../lib/store
 
 const titles: Record<SubmissionKind, string> = {
   member: '优秀社员自荐',
-  work: '游戏作品投稿',
-  join: '加入幻造工坊',
-  contact: '联系工坊',
+  work: '作品投稿',
+  join: '加入社团交流',
+  contact: '联系我们',
 }
 
 const defaultTemplates: Record<SubmissionKind, string> = {
@@ -27,16 +27,17 @@ const defaultTemplates: Record<SubmissionKind, string> = {
   work: [
     '| 项目 | 内容 |',
     '| --- | --- |',
-    '| 开发引擎 / 工具 | Godot 4 / Unity 2D / Web |',
-    '| 当前状态 | 在线可玩 / 试玩版 / 开发日志 |',
-    '| 核心机制与亮点 | 一句话概括核心玩法与特色 |',
-    '| 详细介绍 | 玩法说明、团队分工与创作背景 |',
+    '| 作品类别 | 游戏 / 美术画作 / 音乐编曲 |',
+    '| 使用引擎或工具 | Godot 4 / Unity 2D / Aseprite / FL Studio |',
+    '| 当前状态 | 在线可玩 / 实机演示 / 原创画作 / 原创曲目 |',
+    '| 作品介绍 | 玩法说明、美术设定或编曲背景 |',
   ].join('\n'),
-  join: '你好！我想加入幻造工坊，我感兴趣的方向和想做的游戏是：',
+  join: '你好！我想加入游戏开发社团交流，我感兴趣的方向和想做的作品是：',
   contact: '',
 }
 
 const TRACK_OPTIONS = ['策划', '程序', '美术', '音乐']
+const WORK_TYPE_OPTIONS = ['游戏', '美术画作', '音乐编曲']
 
 export function ContactDialog() {
   const { contact, setContact, catalog, online } = useStudio()
@@ -46,6 +47,7 @@ export function ContactDialog() {
   const [sending, setSending] = useState(false)
   const [sentSuccess, setSentSuccess] = useState(false)
   const [selectedTracks, setSelectedTracks] = useState<string[]>(['程序'])
+  const [workType, setWorkType] = useState<string>('游戏')
   const [values, setValues] = useState({
     name: '',
     contactInfo: '',
@@ -56,9 +58,8 @@ export function ContactDialog() {
   })
   const [urlError, setUrlError] = useState('')
 
-  const clubEmail = catalog?.club.email ?? 'hzgftech@protonmail.com'
+  const clubEmail = catalog?.club.email ?? 'hzgftech@outlook.com'
   const qqGroup = catalog?.club.qqGroup ?? '1130062117'
-  const phone = catalog?.club.phone ?? '19730031977'
 
   const update = (field: keyof typeof values, value: string) => setValues(v => ({ ...v, [field]: value }))
 
@@ -108,13 +109,13 @@ export function ContactDialog() {
       catch { setUrlError('请输入有效的 HTTPS 链接。'); return }
     }
     setUrlError('')
-    const subject = `[幻造工坊 · ${titles[kind]}] ${values.title.trim() || values.name.trim()}`
+    const subject = `[社团宣传网站 · ${titles[kind]}] ${values.title.trim() || values.name.trim()}`
     const body = [
       `提交类型：${titles[kind]}`,
       `姓名 / 昵称：${values.name.trim()}`,
-      `联系方式（QQ / 微信 / 电话）：${values.contactInfo.trim()}`,
+      `联系方式（QQ / 微信）：${values.contactInfo.trim()}`,
       `联系邮箱：${finalEmail || '未填写（通过网站在线代发）'}`,
-      ...(kind !== 'contact' ? [`所属方向：${selectedTracks.join(' / ')}`] : []),
+      ...(kind === 'work' ? [`作品类别：${workType}`] : kind !== 'contact' ? [`所属方向：${selectedTracks.join(' / ')}`] : []),
       ...(kind !== 'contact' ? [`${kind === 'work' ? '作品名称' : '角色定位 / 意向'}：${values.title.trim()}`] : []),
       ...(isPublic ? [`作品 / 主页链接：${values.url.trim()}`] : []),
       '',
@@ -194,8 +195,8 @@ export function ContactDialog() {
           <div className="qq-recommend-box">
             <div>
               <span className="work-tile__meta">推荐下一步</span>
-              <h3>加入幻造工坊招新交流 QQ 群：{qqGroup}</h3>
-              <p>进群后可直接 @管理员 或粘贴下方刚填写的资料表格，社团电话：{phone}。</p>
+              <h3>加入招新交流 QQ 群：{qqGroup}</h3>
+              <p>进群后可直接 @管理员 或粘贴下方刚填写的资料表格。</p>
             </div>
             <div className="qq-recommend-actions">
               <button type="button" className="studio-btn studio-btn--primary" onClick={() => copyText(qqGroup, 'QQ 群号已复制')}>
@@ -227,7 +228,7 @@ export function ContactDialog() {
           {!online && <p className="inline-status">当前离线，可先下载草稿或复制内容。</p>}
           <div className="dialog-actions preview-actions">
             <Button variant="ghost" onClick={() => setPrepared(null)} disabled={sending}><ArrowLeft />返回修改</Button>
-            <Button variant="outline" onClick={() => { saveText('幻造工坊-提交资料.md', `# ${prepared.subject}\n\n${prepared.body}`); toast.success('草稿已下载') }}>
+            <Button variant="outline" onClick={() => { saveText('社团宣传网站-提交资料.md', `# ${prepared.subject}\n\n${prepared.body}`); toast.success('草稿已下载') }}>
               <Download />下载表格
             </Button>
             <Button variant="outline" asChild>
@@ -249,8 +250,8 @@ export function ContactDialog() {
               <Input autoComplete="name" required pattern={'.*\\S.*'} maxLength={60} value={values.name} onChange={e => update('name', e.target.value)} placeholder="你的称呼或公开昵称" />
             </label>
             <label>
-              联系方式（QQ / 微信 / 电话） *
-              <Input required pattern={'.*\\S.*'} maxLength={80} value={values.contactInfo} onChange={e => update('contactInfo', e.target.value)} placeholder="如 QQ：123456789 或手机号" />
+              联系方式（QQ / 微信） *
+              <Input required pattern={'.*\\S.*'} maxLength={80} value={values.contactInfo} onChange={e => update('contactInfo', e.target.value)} placeholder="如 QQ：123456789" />
             </label>
           </div>
 
@@ -271,7 +272,24 @@ export function ContactDialog() {
             />
           </div>
 
-          {kind !== 'contact' && (
+          {kind === 'work' ? (
+            <div className="track-selector-row">
+              <span className="track-selector-label">作品类别：</span>
+              <div className="track-selector-pills">
+                {WORK_TYPE_OPTIONS.map(t => (
+                  <button
+                    key={t}
+                    type="button"
+                    aria-pressed={workType === t}
+                    className={workType === t ? 'active' : ''}
+                    onClick={() => setWorkType(t)}
+                  >
+                    {t}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : kind !== 'contact' && (
             <div className="track-selector-row">
               <span className="track-selector-label">所属方向（可多选）：</span>
               <div className="track-selector-pills">
@@ -294,11 +312,11 @@ export function ContactDialog() {
             <div className={isPublic ? 'form-grid' : ''}>
               <label>
                 {kind === 'work' ? '作品名称 *' : '角色定位 / 意向标题 *'}
-                <Input required pattern={'.*\\S.*'} maxLength={120} value={values.title} onChange={e => update('title', e.target.value)} placeholder={kind === 'work' ? '作品名称（每人最多展示 2 款）' : '如：Godot 独立开发 · 像素美术'} />
+                <Input required pattern={'.*\\S.*'} maxLength={120} value={values.title} onChange={e => update('title', e.target.value)} placeholder={kind === 'work' ? '游戏、画作或编曲名称（每人最多 2 款）' : '如：Godot 独立开发 · 像素美术'} />
               </label>
               {isPublic && (
                 <label>
-                  {kind === 'work' ? '游玩或演示链接（HTTPS） *' : '个人主页 / B站 / GitHub（HTTPS） *'}
+                  {kind === 'work' ? '作品链接（HTTPS） *' : '个人主页 / B站 / GitHub（HTTPS） *'}
                   <Input type="url" required maxLength={700} value={values.url} aria-invalid={!!urlError} aria-describedby={urlError ? 'url-error' : undefined} onChange={e => { update('url', e.target.value); setUrlError('') }} placeholder="https://" />
                   {urlError && <span id="url-error" className="field-error">{urlError}</span>}
                 </label>
@@ -308,7 +326,7 @@ export function ContactDialog() {
 
           <label>
             <div className="email-label-row">
-              <span>{kind === 'contact' ? '留言内容 *' : kind === 'work' ? '作品简介与玩法说明 *' : '个人简历 / 亮点自荐 *'}</span>
+              <span>{kind === 'contact' ? '留言内容 *' : kind === 'work' ? '作品简介与说明 *' : '个人简历 / 亮点自荐 *'}</span>
               {(kind === 'member' || kind === 'work') && (
                 <button type="button" className="qq-email-helper" onClick={insertTemplate}>
                   + 插入默认邮件表格模板
@@ -325,7 +343,7 @@ export function ContactDialog() {
               onChange={e => { e.currentTarget.setCustomValidity(''); update('summary', e.target.value) }}
               placeholder={
                 kind === 'work'
-                  ? '介绍核心玩法、使用引擎与当前状态（也可点击右上角“插入默认邮件表格模板”）'
+                  ? '介绍游戏玩法、美术设定或编曲背景（也可点击右上角“插入默认邮件表格模板”）'
                   : kind === 'member'
                     ? '介绍你的开发方向、代表作（最多 2 款）与创作经历（可点击右上角插入表格模板）'
                     : '写下你的想法'

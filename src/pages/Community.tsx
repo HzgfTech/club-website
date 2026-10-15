@@ -6,14 +6,15 @@ import { useStudio } from '../lib/store'
 import { useFilters } from '../lib/filters'
 import { normalizePath } from '../lib/utils'
 
-const DIRECTIONS = ['全部', '策划', '程序', '美术', '音乐']
+const WORK_CATEGORIES = ['全部', '游戏', '美术画作', '音乐编曲']
+const MEMBER_DIRECTIONS = ['全部', '策划', '程序', '美术', '音乐']
 
 export function ShowcasePage() {
   const { catalog, setContact } = useStudio()
   const { params, update, clear } = useFilters()
   const id = params.get('id')
   const query = params.get('q') ?? ''
-  const direction = params.get('track') ?? '全部'
+  const category = params.get('category') ?? '全部'
   const works = catalog!.works
   const selected = works.find(work => work.id === id)
   const backParams = new URLSearchParams(params); backParams.delete('id')
@@ -40,7 +41,7 @@ export function ShowcasePage() {
           <p className="work-detail__author">创作者：{selected.author}</p>
           <p className="detail-intro">{selected.summary}</p>
           <div className="studio-tags">
-            {(selected.tracks ?? []).map(t => <span key={t} className="track-badge">{t}</span>)}
+            <span className="track-badge">{selected.category}</span>
             {(selected.tags ?? []).map(tag => <span key={tag}>{tag}</span>)}
           </div>
           <div className="studio-hero__actions">
@@ -64,12 +65,12 @@ export function ShowcasePage() {
   }
 
   const filtered = works.filter(work =>
-    (direction === '全部' || (work.tracks ?? []).includes(direction)) &&
-    `${work.title} ${work.summary} ${work.author} ${work.category} ${work.engine ?? ''} ${(work.tracks ?? []).join(' ')} ${(work.tags ?? []).join(' ')}`.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase())
+    (category === '全部' || work.category === category) &&
+    `${work.title} ${work.summary} ${work.author} ${work.category} ${work.engine ?? ''} ${(work.tags ?? []).join(' ')}`.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase())
   )
 
   return <div className="inner-page">
-    <PageHeading title="作品展" description="按策划、程序、美术、音乐方向浏览社员独立游戏、ARG 与开源工具。">
+    <PageHeading title="作品展" description="收录社团成员创作的游戏、美术画作与音乐编曲作品（每人最多展示 2 款代表作）。">
       <div className="heading-links">
         <a href="https://github.com/HzgfTech/club-website/pulls" target="_blank" rel="noopener noreferrer" className="studio-btn studio-btn--secondary">
           <GitPullRequest size={15} />提交 PR
@@ -81,16 +82,16 @@ export function ShowcasePage() {
     </PageHeading>
 
     <div className="work-tools">
-      <div className="filter-tabs" role="group" aria-label="创作方向">
-        {DIRECTIONS.map(item => (
+      <div className="filter-tabs" role="group" aria-label="作品类别">
+        {WORK_CATEGORIES.map(item => (
           <button
             key={item}
             type="button"
-            aria-pressed={direction === item}
-            className={direction === item ? 'active' : ''}
-            onClick={() => update('track', item === '全部' ? '' : item)}
+            aria-pressed={category === item}
+            className={category === item ? 'active' : ''}
+            onClick={() => update('category', item === '全部' ? '' : item)}
           >
-            {item === '全部' ? '全部方向' : `${item}方向`}
+            {item}
           </button>
         ))}
       </div>
@@ -113,7 +114,7 @@ export function ShowcasePage() {
               </h2>
               <p className="work-tile__desc">{work.summary}</p>
               <div className="studio-tags">
-                {(work.tracks ?? []).map(t => <span key={t} className="track-badge">{t}</span>)}
+                <span className="track-badge">{work.category}</span>
                 {(work.tags ?? []).map(tag => <span key={tag}>{tag}</span>)}
               </div>
               <div className="work-tile__foot">
@@ -124,6 +125,11 @@ export function ShowcasePage() {
           </article>
         ))}
       </div>
+    ) : !query.trim() && category !== '全部' ? (
+      <EmptyState icon={<Gamepad2 />} title={`第一份「${category}」作品虚位以待`} description="欢迎投稿你的原创游戏、像素/原画设定或游戏配乐曲目。">
+        <Button onClick={() => setContact('work')}>提交{category}作品<ArrowUpRight /></Button>
+        <Button variant="outline" onClick={clear}>查看全部作品</Button>
+      </EmptyState>
     ) : (
       <NoResults onClear={clear} />
     )}
@@ -238,7 +244,7 @@ export function MembersPage() {
 
     <div className="work-tools">
       <div className="filter-tabs" role="group" aria-label="社员方向">
-        {DIRECTIONS.map(item => (
+        {MEMBER_DIRECTIONS.map(item => (
           <button
             key={item}
             type="button"

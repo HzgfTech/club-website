@@ -7,28 +7,74 @@ import { fileSize } from '../lib/catalog'
 import { copyText, useStudio } from '../lib/store'
 import { useFilters } from '../lib/filters'
 
-const godotTutorials = [
+const tutorialsByDirection = [
   {
     id: 'godot-beginner-brackeys',
-    stage: '入门教程 · 由 Amiya_desi 提供',
-    tracks: ['程序', '策划'],
+    direction: '程序',
+    subTrack: '程序 · Godot 入门',
+    provider: '由 Amiya_desi 提供',
     title: '[Brackeys] How To Make A Video Game - Godot Beginner Tutorial（中英熟肉）',
     duration: '77 分钟 · 1 集全流程跟练',
     cover: '/images/tutorial-godot-beginner.jpg',
     url: 'https://www.bilibili.com/video/BV12htQeQEMs/',
     summary: '1 小时从零完成第一款 2D 平台跳跃游戏，涵盖节点与场景树、TileMap 瓦片地图、角色控制、碰撞与 GDScript 基础。',
-    highlights: ['节点与场景树', 'TileMap 瓦片', 'GDScript 入门', '碰撞与动画'],
+    highlights: ['程序 · Godot', '节点与场景树', 'TileMap 瓦片', 'GDScript 基础'],
   },
   {
     id: 'godot-advanced-brave-legend',
-    stage: '进阶教程 · 由 Amiya_desi 提供',
-    tracks: ['程序', '美术', '音乐'],
+    direction: '程序',
+    subTrack: '程序 · Godot 进阶',
+    provider: '由 Amiya_desi 提供',
     title: '十分钟制作横版动作游戏｜Godot 4 教程《勇者传说》系列（30 集）',
     duration: '30 集完整连载 · 横版动作架构',
     cover: '/images/tutorial-godot-advanced.jpg',
     url: 'https://www.bilibili.com/video/BV1SP411m7aj/',
     summary: '系统搭建 2D 横版卷轴动作游戏底层架构，涵盖有限状态机（FSM）、Hitbox/Hurtbox 解耦、地形交互、存档序列化与 Boss 战设计。',
-    highlights: ['有限状态机 FSM', '攻击受击解耦', '序列化存档', '相机与音效'],
+    highlights: ['程序 · Godot', '有限状态机 FSM', '攻击受击解耦', '序列化存档'],
+  },
+  {
+    id: 'shader-beginner-peakcoder',
+    direction: '程序',
+    subTrack: '程序 · 图形与着色器',
+    provider: '由 Amiya_desi 提供',
+    title: 'Shadertoy 中文入门教程：从零编写第一个 2D 着色器',
+    duration: '图文交互教程 · 渲染与特效基础',
+    url: 'https://shadertoy.peakcoder.com/',
+    summary: '循序渐进讲解片元着色器（Fragment Shader）、UV 坐标、SDF 距离场与常见 2D 画面特效数学原理，适合 Godot / Unity 特效进阶。',
+    highlights: ['程序 · 着色器', '2D SDF 数学', '片元着色器', '画面后处理'],
+  },
+  {
+    id: 'gamedev-design-roadmap',
+    direction: '策划',
+    subTrack: '策划 · 机制与系统设计',
+    provider: '由 Amiya_desi 提供',
+    title: 'Game Developer & Design 知识体系路线图',
+    duration: '结构化路线图 · 玩法与关卡设计',
+    url: 'https://roadmap.sh/game-developer',
+    summary: '梳理游戏核心循环（Core Loop）、关卡节奏、状态流转、系统数值与多工种协作的知识脉络，适合策划与独立制作人立项参考。',
+    highlights: ['策划 · 机制设计', '关卡动线', '系统架构', '立项参考'],
+  },
+  {
+    id: 'lospec-pixel-art-start',
+    direction: '美术',
+    subTrack: '美术 · 像素画入门',
+    provider: '由 Amiya_desi 提供',
+    title: 'Lospec Pixel Art: Where to Start（像素画系统入门指南）',
+    duration: '图文教程 · 调色盘与精灵绘制',
+    url: 'https://lospec.com/articles/pixel-art-where-to-start/',
+    summary: '面向零基础美术创作者的像素艺术指南，涵盖画布尺寸选择、抗锯齿与线条清理、调色盘搭配及角色序列帧动画绘制基础。',
+    highlights: ['美术 · 像素画', '色彩与调色盘', '像素线条控制', '序列帧基础'],
+  },
+  {
+    id: 'music-self-learning-indienova',
+    direction: '音乐',
+    subTrack: '音乐 · 游戏配乐与编曲',
+    provider: '由 Amiya_desi 提供',
+    title: '自学游戏向音乐制作的心得与学习路线（indienova）',
+    duration: '实战指南 · 编曲软件与乐理起点',
+    url: 'https://indienova.com/indie-game-development/thoughts-on-self-learning-music-production-for-games/',
+    summary: '专门针对独立游戏开发者的配乐自学指南，整理 DAW 宿主选择、音源插件、Loop 循环乐句写作与常见游戏情绪氛围塑造方法。',
+    highlights: ['音乐 · 游戏配乐', 'Loop 循环作曲', '音源与合成器', '零基础编曲'],
   },
 ]
 
@@ -89,8 +135,9 @@ const navWebsites = [
 ]
 
 export function ResourcesPage() {
-  const { catalog, favorites } = useStudio()
+  const { catalog, favorites, setContact } = useStudio()
   const { params, update, clear } = useFilters()
+  const [tutorialDirection, setTutorialDirection] = useState('全部')
   const [navDirection, setNavDirection] = useState('全部')
   const query = params.get('q') ?? ''
   const category = params.get('category') ?? '全部'
@@ -102,40 +149,64 @@ export function ResourcesPage() {
     (category === '全部' || resource.category === category) &&
     `${resource.title} ${resource.description} ${resource.category} ${resource.format} ${resource.provider ?? ''}`.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase())
   )
-  const navDirections = ['全部', '策划', '程序', '美术', '音乐']
+  const directionTabs = ['全部', '程序', '策划', '美术', '音乐']
+  const visibleTutorials = tutorialsByDirection.filter(t => tutorialDirection === '全部' || t.direction === tutorialDirection)
   const visibleWebsites = navWebsites.filter(site => navDirection === '全部' || site.direction === navDirection)
 
   return <div className="inner-page">
-    <PageHeading title="资源库" description="按策划、程序、美术、音乐方向整理的教程、指南与工具导航（由 Amiya_desi 提供）。">
-      <a href="https://github.com/HzgfTech/club-website/pulls" target="_blank" rel="noopener noreferrer" className="studio-btn studio-btn--secondary">
-        <GitPullRequest size={15} />GitHub 提交 PR
-      </a>
+    <PageHeading title="资源库" description="按程序（Godot / 着色器）、策划、美术、音乐方向分类整理的教程与工具库（由 Amiya_desi 提供）。">
+      <div className="heading-links">
+        <a href="https://github.com/HzgfTech/club-website/pulls" target="_blank" rel="noopener noreferrer" className="studio-btn studio-btn--secondary">
+          <GitPullRequest size={15} />GitHub 提交 PR
+        </a>
+        <button type="button" className="studio-btn studio-btn--primary" onClick={() => setContact('contact')}>
+          推荐新教程<ArrowUpRight size={15} />
+        </button>
+      </div>
     </PageHeading>
 
     <section className="studio-section">
       <div className="studio-section__head">
-        <h2>Godot 视频教程</h2>
-        <span className="meta-note">由 Amiya_desi 提供</span>
+        <h2>分方向教程（程序 · 策划 · 美术 · 音乐）</h2>
+        <span className="meta-note">由 Amiya_desi 提供 · 欢迎推荐更多子方向教程</span>
       </div>
+
+      <div className="filter-tabs nav-filter-tabs" role="group" aria-label="教程方向筛选">
+        {directionTabs.map(item => (
+          <button
+            key={item}
+            type="button"
+            aria-pressed={tutorialDirection === item}
+            className={tutorialDirection === item ? 'active' : ''}
+            onClick={() => setTutorialDirection(item)}
+          >
+            {item === '全部' ? '全部方向' : item === '程序' ? '程序（Godot / 着色器）' : `${item}教程`}
+          </button>
+        ))}
+      </div>
+
       <div className="selected-works-grid">
-        {godotTutorials.map(tutorial => (
-          <article key={tutorial.id} className="work-tile">
-            <a href={tutorial.url} target="_blank" rel="noopener noreferrer" className="work-tile__media">
-              <img src={tutorial.cover} alt={tutorial.title} loading="lazy" />
-            </a>
+        {visibleTutorials.map(tutorial => (
+          <article key={tutorial.id} className={tutorial.cover ? 'work-tile' : 'article-box'}>
+            {tutorial.cover && (
+              <a href={tutorial.url} target="_blank" rel="noopener noreferrer" className="work-tile__media">
+                <img src={tutorial.cover} alt={tutorial.title} loading="lazy" />
+              </a>
+            )}
             <div className="work-tile__copy">
-              <p className="work-tile__meta">{tutorial.stage} · {tutorial.duration}</p>
+              <p className="work-tile__meta">{tutorial.subTrack} · {tutorial.provider} · {tutorial.duration}</p>
               <h3>
                 <a href={tutorial.url} target="_blank" rel="noopener noreferrer">{tutorial.title}</a>
               </h3>
               <p className="work-tile__desc">{tutorial.summary}</p>
               <div className="studio-tags">
-                {tutorial.tracks.map(t => <span key={t} className="track-badge">{t}</span>)}
-                {tutorial.highlights.map(tag => <span key={tag}>{tag}</span>)}
+                {tutorial.highlights.map((tag, i) => (
+                  <span key={tag} className={i === 0 ? 'track-badge' : ''}>{tag}</span>
+                ))}
               </div>
               <div className="work-tile__foot">
                 <a href={tutorial.url} target="_blank" rel="noopener noreferrer" className="studio-text-link">
-                  前往 Bilibili 观看<ArrowUpRight size={15} />
+                  打开教程<ArrowUpRight size={15} />
                 </a>
               </div>
             </div>
@@ -167,7 +238,7 @@ export function ResourcesPage() {
       </div>
 
       <div className="filter-tabs nav-filter-tabs" role="group" aria-label="外部导航方向">
-        {navDirections.map(item => (
+        {directionTabs.map(item => (
           <button
             key={item}
             type="button"

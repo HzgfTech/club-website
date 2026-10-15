@@ -50,9 +50,9 @@ export function HomePage({ language = 'zh' }: { language?: 'zh' | 'en' }) {
           <span className="hero-line-1">把想法做成</span>
           <span className="hero-line-2">可玩的游戏</span>
         </h1>
-        <p className="studio-hero__english">ZUST Game Development Club · Huanzao Workshop</p>
+        <p className="studio-hero__english">Game Dev Club Promo Site · Created by Amiya_desi</p>
         <p className="studio-hero__body">
-          浙江科技大学幻造工坊游戏开发社团。围绕游戏策划、程序开发、像素美术与音乐音效，先做出可运行的原型，再通过试玩继续打磨。
+          Amiya_desi 个人制作的社团宣传网站。围绕游戏策划、程序开发、像素美术与音乐音效，先做出可运行的原型，再通过试玩继续打磨。
         </p>
         <div className="studio-hero__actions">
           <a href="/works.html" className="studio-btn studio-btn--primary">浏览作品<ArrowUpRight size={16} /></a>
@@ -156,9 +156,9 @@ function EnglishHomePage({ data }: { data: ReturnType<typeof useStudio>['catalog
           <span className="hero-line-1">Turn ideas into</span>
           <span className="hero-line-2">playable games</span>
         </h1>
-        <p className="studio-hero__english">ZUST Game Development Club · Huanzao Workshop</p>
+        <p className="studio-hero__english">Game Dev Club Promo Site · Created by Amiya_desi</p>
         <p className="studio-hero__body">
-          The student game development club at Zhejiang University of Science & Technology. Build playable prototypes first, then refine them through playtesting.
+          A game development club promo site personally crafted by Amiya_desi. Build playable prototypes first, then refine them through playtesting.
         </p>
         <div className="studio-hero__actions">
           <a href="/works.html" className="studio-btn studio-btn--primary">View Works<ArrowUpRight size={16} /></a>

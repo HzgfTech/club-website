@@ -18,7 +18,7 @@ const navigation = [
   { href: '/works.html', route: '/works', title: '作品展' },
   { href: '/members.html', route: '/members', title: '优秀社员' },
   { href: '/resources.html', route: '/resources', title: '资源库' },
-  { href: '/about.html', route: '/about', title: '关于工坊' },
+  { href: '/about.html', route: '/about', title: '关于本站' },
 ]
 
 const pages: Record<string, ComponentType> = {
@@ -48,7 +48,7 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.lang = language === 'en' ? 'en' : 'zh-CN'
-    if (isHome) document.title = language === 'en' ? 'Home · Huanzao Workshop' : '幻造工坊 · 浙江科技大学游戏开发社团'
+    if (isHome) document.title = language === 'en' ? 'Game Dev Club Promo Site by Amiya_desi' : 'Amiya_desi 个人制作的社团宣传网站'
   }, [isHome, language])
 
   useEffect(() => {
@@ -130,9 +130,8 @@ export default function App() {
     }
   }
 
-  const email = catalog?.club.email ?? 'hzgftech@protonmail.com'
+  const email = catalog?.club.email ?? 'hzgftech@outlook.com'
   const qqGroup = catalog?.club.qqGroup ?? '1130062117'
-  const phone = catalog?.club.phone ?? '19730031977'
 
   return <div className="club-site">
     <div className="ambient-canvas" aria-hidden="true">
@@ -143,11 +142,11 @@ export default function App() {
     <a href="#main-content" className="skip-link">{language === 'en' ? 'Skip to content' : '跳到主要内容'}</a>
     <header className="site-header">
       <div className="site-header__inner">
-        <a href="/index.html" className="brand" aria-label="幻造工坊首页">
-          <span className="brand__mark" aria-hidden="true">HZ</span>
+        <a href="/index.html" className="brand" aria-label="网站首页">
+          <span className="brand__mark" aria-hidden="true">AD</span>
           <span className="brand__text">
-            <strong>幻造工坊</strong>
-            <small>{language === 'en' ? 'ZUST Game Dev Club' : '浙江科技大学游戏开发社团'}</small>
+            <strong>Amiya_desi 个人制作的社团宣传网站</strong>
+            <small>{language === 'en' ? 'Personal Club Promo Site by Amiya_desi' : '游戏开发交流 · 作品展示 · 教程导航'}</small>
           </span>
         </a>
 
@@ -189,12 +188,11 @@ export default function App() {
     <footer className="site-footer">
       <div className="site-footer__inner">
         <div className="footer-left">
-          <strong>浙江科技大学幻造工坊游戏开发社团</strong>
+          <strong>Amiya_desi 个人制作的社团宣传网站</strong>
           <div className="footer-contacts">
             <button type="button" className="footer-contact-pill" onClick={() => copyText(qqGroup, 'QQ 群号已复制')}>
               QQ 群：{qqGroup} <Copy size={12} />
             </button>
-            <a href={`tel:${phone}`} className="footer-contact-pill">电话：{phone}</a>
             <a href={`mailto:${email}`} className="footer-contact-pill">{email}</a>
             <a href="https://github.com/HzgfTech/club-website" target="_blank" rel="noopener noreferrer" className="footer-contact-pill">
               GitHub 仓库<ArrowUpRight size={12} />
@@ -204,15 +202,15 @@ export default function App() {
             </a>
           </div>
         </div>
-        <p className="footer-copy">© 2026 幻造工坊 · Huanzao Workshop</p>
+        <p className="footer-copy">© 2026 Amiya_desi 个人制作的社团宣传网站</p>
       </div>
     </footer>
 
     <Sheet open={menu} onOpenChange={setMenu}>
       <SheetContent side="right" className="mobile-navigation">
-        <SheetTitle className="sr-only">社团导航</SheetTitle>
+        <SheetTitle className="sr-only">网站导航</SheetTitle>
         <SheetDescription className="sr-only">选择页面</SheetDescription>
-        <span className="mobile-brand">幻造工坊</span>
+        <span className="mobile-brand">Amiya_desi 个人制作的社团宣传网站</span>
         <nav aria-label="手机导航">
           {[...navigation, { href: '/join.html', route: '/join', title: '加入社团' }].map(item => (
             <a href={item.href} key={item.href} aria-current={active(item.route) ? 'page' : undefined}>
@@ -222,7 +220,6 @@ export default function App() {
         </nav>
         <div className="mobile-contact-box">
           <span>QQ 群：{qqGroup}</span>
-          <a href={`tel:${phone}`}>电话：{phone}</a>
           <a href={`mailto:${email}`} className="mobile-email">{email}</a>
         </div>
       </SheetContent>

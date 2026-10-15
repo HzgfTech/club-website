@@ -1,4 +1,4 @@
-const CLUB_EMAIL = 'hzgftech@protonmail.com'
+const CLUB_EMAIL = 'hzgftech@outlook.com'
 const MAIL_API_URL = 'https://mail.desiakuma.cc.cd/v1/messages'
 
 export async function onRequestPost(context) {

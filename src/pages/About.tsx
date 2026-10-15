@@ -71,17 +71,16 @@ export function AboutPage() {
   const { catalog, setContact } = useStudio()
   const club = catalog!.club
   const qqGroup = club.qqGroup ?? '1130062117'
-  const phone = club.phone ?? '19730031977'
   const email = club.email
 
   return <div className="inner-page">
-    <PageHeading title="关于幻造工坊" description="浙江科技大学幻造工坊游戏开发社团简介、部门设置与联系方式。">
+    <PageHeading title="关于本站" description="Amiya_desi 个人制作的社团宣传网站简介、方向设置与联系方式。">
       <div className="heading-links">
         <a href="https://github.com/HzgfTech/club-website" target="_blank" rel="noopener noreferrer" className="studio-btn studio-btn--secondary">
           <GitPullRequest size={15} />GitHub 仓库
         </a>
         <button type="button" className="studio-btn studio-btn--primary" onClick={() => setContact('contact')}>
-          联系工坊<ArrowUpRight size={16} />
+          联系我们<ArrowUpRight size={16} />
         </button>
       </div>
     </PageHeading>
@@ -89,10 +88,10 @@ export function AboutPage() {
     <section className="about-layout">
       <div className="about-copy">
         <p>
-          <strong>浙江科技大学幻造工坊游戏开发社团</strong>（简称“幻造工坊”）是由我校爱好游戏设计、编程实践、音效制作与动画美术的在校学生组成的学术科技类社团。
+          本站是由 <strong>Amiya_desi 个人制作的社团宣传网站</strong>，面向校内爱好游戏设计、编程实践、音效制作与动画美术的同学，提供作品展示、创作者档案与学习教程导航。
         </p>
         <p>
-          我们提倡<strong>“先做出可玩的东西，再通过试玩继续打磨”</strong>。成员可以从策划、程序、美术或音效切入，在基础工作坊、跨专业小组开发与 Game Jam 比赛中共同完成原创游戏作品。
+          我们提倡<strong>“先做出可玩的东西，再通过试玩继续打磨”</strong>。成员可以从策划、程序、美术或音效切入，在基础工作坊、跨专业小组开发与 Game Jam 比赛中共同完成原创作品。
         </p>
 
         <div className="mail-guide-card">
@@ -116,15 +115,15 @@ export function AboutPage() {
 
       <dl className="about-facts">
         <div className="about-fact">
-          <dt>社团全称</dt>
-          <dd>浙江科技大学幻造工坊游戏开发社团</dd>
+          <dt>网站名称</dt>
+          <dd>Amiya_desi 个人制作的社团宣传网站</dd>
         </div>
         <div className="about-fact">
-          <dt>社团类别</dt>
-          <dd>学术科技类学生社团</dd>
+          <dt>定位方向</dt>
+          <dd>游戏开发交流 · 原创作品展示 · 教程导航</dd>
         </div>
         <div className="about-fact">
-          <dt>社团宗旨</dt>
+          <dt>创作理念</dt>
           <dd>以创为乐，向暖生活，心怀美好，手创未来</dd>
         </div>
         <div className="about-fact">
@@ -138,10 +137,6 @@ export function AboutPage() {
               {qqGroup} <Copy size={13} />
             </button>
           </dd>
-        </div>
-        <div className="about-fact">
-          <dt>联系电话</dt>
-          <dd><a href={`tel:${phone}`}>{phone}</a></dd>
         </div>
         <div className="about-fact">
           <dt>联系邮箱</dt>
@@ -242,11 +237,10 @@ export function JoinPage() {
   const { setContact, catalog } = useStudio()
   const club = catalog!.club
   const qqGroup = club.qqGroup ?? '1130062117'
-  const phone = club.phone ?? '19730031977'
   const email = club.email
 
   return <div className="inner-page">
-    <PageHeading title="加入幻造工坊" description="选择一个感兴趣的方向，和我们一起做出下一款游戏。">
+    <PageHeading title="加入社团交流" description="选择一个感兴趣的方向，和我们一起做出下一款作品。">
       <div className="heading-links">
         <button type="button" className="studio-btn studio-btn--secondary" onClick={() => setContact('member')}>
           优秀社员自荐<ArrowUpRight size={15} />
@@ -299,7 +293,6 @@ export function JoinPage() {
           <button type="button" className="studio-btn studio-btn--secondary" onClick={() => setContact('join')}>
             打开报名表单<ArrowUpRight size={15} />
           </button>
-          <a href={`tel:${phone}`} className="contact-band__link">电话：{phone}</a>
           <a href={`mailto:${email}`} className="contact-band__link">{email}</a>
         </div>
       </div>
