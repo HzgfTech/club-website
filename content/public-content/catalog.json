@@ -32,7 +32,7 @@
       "updated": "2026-10-14",
       "provider": "由 Amiya_desi 提供",
       "externalUrl": "https://nav.sayori.org/",
-      "content": "提取自 Amiya的书桌资源导航（nav.sayori.org）与创作资源索引（blog.sayori.org/posts/resource-index/），按 2D/3D 素材与 Shader、像素画与动画工具、游戏配乐与音效生成器分类整理，并附社团作品素材授权与署名规范。"
+      "content": "提取自 Amiya的书桌资源导航（nav.sayori.org）与创作资源索引（blog.sayori.org/posts/resource-index/），按策划、程序、美术、音乐方向分类整理，并附社团作品素材授权与署名规范。"
     },
     {
       "id": "club-charter-and-guide",
@@ -52,7 +52,7 @@
       "format": "MD",
       "file": "project-submission.md",
       "updated": "2026-10-14",
-      "content": "填写游戏名称、作者或团队、开发引擎、游戏类型、玩法简介、当前进度、游玩方式和可访问的游戏链接。可附封面图片链接。\n\n确认作品展示授权后，将资料发送至社团邮箱 hzgftech@protonmail.com 或在社团 QQ 群 1130062117 联系管理员。"
+      "content": "填写游戏名称、作者或团队、创作方向（策划 / 程序 / 美术 / 音乐）、开发引擎、玩法简介、当前进度和可访问的游戏链接。\n\n确认作品展示授权后，可通过官网在线生成邮件发送至 hzgftech@protonmail.com，或在 GitHub 仓库提交 Pull Request，也可加入社团 QQ 群 1130062117 联系管理员。"
     },
     {
       "id": "member-profile",
@@ -62,7 +62,7 @@
       "format": "MD",
       "file": "member-profile.md",
       "updated": "2026-10-14",
-      "content": "填写姓名或公开昵称、游戏开发方向、个人简介、代表游戏或开发作品名称与链接，以及联系邮箱。\n\n确认公开授权后，将资料发送至社团邮箱 hzgftech@protonmail.com。"
+      "content": "填写姓名或公开昵称、游戏开发方向（策划 / 程序 / 美术 / 音乐）、个人简介、代表游戏或开发作品名称与链接，以及联系方式。\n\n确认公开授权后，可通过官网在线生成邮件发送至 hzgftech@protonmail.com，或在 GitHub 仓库提交 Pull Request。"
     },
     {
       "id": "forge-mark",
@@ -87,22 +87,6 @@
   ],
   "works": [
     {
-      "id": "wake-up-at-the-border",
-      "title": "梦醒边界 · Wake Up at the Border",
-      "summary": "融合箱庭探索、非线性对话与回合战斗的 Godot 独立游戏，荣获 GodotHub 第三届开发大赛命题 Jam 赛道二等奖。",
-      "category": "叙事解谜",
-      "author": "Amiya_desi",
-      "url": "https://amiya-desi.itch.io/wake-up-at-the-border",
-      "cover": "/images/work-wake-up.png",
-      "engine": "Godot 4",
-      "status": "赛事二等奖 · 在线可玩",
-      "featured": true,
-      "tags": ["Godot 4", "叙事解谜", "非线性对话", "GodotHub 二等奖", "浏览器即玩"],
-      "sourceUrl": "https://legacy.godothub.com/festival/winners.html",
-      "sourceLabel": "查看 GodotHub 获奖名单",
-      "detail": "《梦醒边界》（Wake Up at the Border）是社员 Amiya_desi 围绕「Wake」主题独立完成的叙事解谜与冒险游戏，在 GodotHub 第三届游戏开发大赛命题 Jam 赛道中荣获二等奖。\n\n游戏将多分支对话演出、场景机关解谜与情绪化的战斗机制结合在一起。玩家在现实与梦境交错的边界醒来，通过与边境角色的互动收集线索、解开空间谜题。该项目也是创作者从教程跟练走向完整原创原型的里程碑作品，沉淀了状态机架构、对话系统接入与 Git 版本管理的完整经验。"
-    },
-    {
       "id": "fifth-fortune-slip",
       "title": "第五张财签 · 杭州民俗数字档案馆",
       "summary": "以杭州民俗与民国商号旧账为底色的网页 ARG 互动解谜作品。通过馆藏检索、碑拓比对与磁带录音拼合线索，揭开五笔“零元订单”背后的故事。",
@@ -113,6 +97,7 @@
       "engine": "Web ARG · 互动叙事",
       "status": "打开即玩 · 四结局",
       "featured": true,
+      "tracks": ["策划", "程序", "美术"],
       "tags": ["民俗解谜 ARG", "非线性叙事", "馆藏检索交互", "四重结局"],
       "sourceUrl": "https://briandolph.xyz/",
       "sourceLabel": "彼岸时墟游戏工作室",
@@ -129,6 +114,7 @@
       "engine": "Godot 4",
       "status": "公开试玩 · 工作室精选",
       "featured": true,
+      "tracks": ["策划", "程序"],
       "tags": ["Godot 4", "时间延迟机制", "轨迹回放", "Game Jam 佳作", "Web 试玩"],
       "sourceUrl": "https://studio.sayori.org/work.html?id=delaytrace",
       "sourceLabel": "XY-Amiya Studio 作品档案",
@@ -145,6 +131,7 @@
       "engine": "Unity 2D",
       "status": "30+ 期开发日志连载",
       "featured": true,
+      "tracks": ["程序", "美术", "音乐"],
       "tags": ["Unity 2D", "昼夜动态光影", "划船与钓鱼", "种田与背包系统", "原创像素与UI"],
       "sourceUrl": "https://space.bilibili.com/269723498",
       "sourceLabel": "访问 就是Helen 的 B站主页",
@@ -161,6 +148,7 @@
       "engine": "Godot 4",
       "status": "完整 11 关可玩",
       "featured": true,
+      "tracks": ["策划", "程序"],
       "tags": ["Godot 4", "时间倒流", "光束连接机制", "11 关完整设计"],
       "sourceUrl": "https://studio.sayori.org/work.html?id=timerewindlinker",
       "sourceLabel": "XY-Amiya Studio 作品档案",
@@ -177,56 +165,11 @@
       "engine": "Unity 2D",
       "status": "034 GameJam 参赛作",
       "featured": false,
+      "tracks": ["策划", "程序"],
       "tags": ["034 GameJam", "平台跳跃解谜", "多角色能力共享", "团队协作开发"],
       "sourceUrl": "https://space.bilibili.com/269723498",
       "sourceLabel": "查看 B站实机演示与下载",
       "detail": "《送034回家》是社员「就是Helen」与团队伙伴首次参加 034 GameJam 限时游戏创作挑战完成的平台跳跃解谜游戏。\n\n游戏紧扣「0、3、4」数字主题，设计了三名拥有不同能力的角色。玩家通过数字键 1、2、3 实时切换主控视角，让角色之间两两建立连接并共享跳跃、机关交互等能力，在紧密配合中解开层层平台机关，护送伙伴顺利回家。"
-    },
-    {
-      "id": "mios-window-wanderer",
-      "title": "Mio's Window Wanderer · 多窗口漫游者",
-      "summary": "打破单一窗口边界的 Godot 4.5 多窗口 Meta 交互冒险原型（ThatGameJam 作品），让角色在多个桌面窗口间穿梭解谜。",
-      "category": "实验交互",
-      "author": "Amiya_desi（联合开发）",
-      "url": "https://amiya-desi.itch.io/thatgamejam",
-      "cover": "/images/work-window-wanderer.png",
-      "engine": "Godot 4.5",
-      "status": "Meta 多窗口实验",
-      "featured": false,
-      "tags": ["Godot 4.5", "Meta 游戏", "多窗口交互", "ThatGameJam"],
-      "sourceUrl": "https://amiya-desi.itch.io/",
-      "sourceLabel": "访问 itch.io 作品库",
-      "detail": "《Mio's Window Wanderer》是参加 ThatGameJam 期间探索桌面级 Meta 交互的实验性冒险原型。\n\n作品利用 Godot 4 的多窗口（Multi-Window）管理能力，将游戏世界拆解为多个独立的视窗。玩家需要观察并操作不同窗口之间的相对关系，引导角色跨越窗口边框完成探索，为社团后续的 Meta 叙事游戏研发积累了底层窗口通信经验。"
-    },
-    {
-      "id": "last-minute-echo",
-      "title": "Last Minute Echo · 终刻回响",
-      "summary": "GMTK Game Jam「Countdown」主题极限开发作品：在倒计时压迫与追猎者围堵下，利用时间回溯修正路线、极限逃生。",
-      "category": "动作冒险",
-      "author": "Amiya_desi",
-      "url": "https://amiya-desi.itch.io/last-minute-echo",
-      "cover": "/images/work-last-minute-echo.png",
-      "engine": "Godot 4",
-      "status": "GMTK Jam 参赛作",
-      "featured": false,
-      "tags": ["GMTK Game Jam", "Countdown 主题", "倒计时追逐", "浏览器即玩"],
-      "detail": "《Last Minute Echo》诞生于全球知名的 GMTK Game Jam（主题：Countdown）。\n\n在最后六小时的极限冲刺中，作者果断收缩庞大的解谜分支，聚焦于「倒计时生存 + 追猎者 AI 博弈 + 时间回溯纠错」的单一闭环体验，确保游戏拥有完整的胜负判定与紧张刺激的追逐节奏。"
-    },
-    {
-      "id": "enhanced-save-system",
-      "title": "Enhanced Save System · 模块化存档插件",
-      "summary": "面向 Godot 4 的开源模块化存档系统，同时提供 GDScript 与 C# 双版本实现，支持自定义 Hook 与存档加密。",
-      "category": "开源工具",
-      "author": "Amiya_desi",
-      "url": "https://github.com/Amiyadesi/enhance_save_system",
-      "cover": "/images/work-save-system.svg",
-      "engine": "GDScript / C#",
-      "status": "GitHub 开源维护",
-      "featured": false,
-      "tags": ["Godot 4 插件", "GDScript & C#", "模块化架构", "加密存档", "开源工程"],
-      "sourceUrl": "https://blog.sayori.org/posts/godot-useful-plugins/",
-      "sourceLabel": "阅读 Godot 插件专栏",
-      "detail": "《Enhanced Save System》是社员 Amiya_desi 结合多款游戏开发实践提炼出的 Godot 4 开源存档模块，收录于 XY-Amiya Studio 工具库。\n\n插件采用解耦的模块化设计，同时提供 GDScript 与 C# 实现，支持生命周期 Hook 注入、多存档槽位管理、状态序列化与加密存储，帮助社团成员在小组原型与比赛项目中快速接入可靠的存档功能。"
     }
   ],
   "members": [
@@ -235,11 +178,11 @@
       "name": "Amiya_desi",
       "role": "独立游戏制作 · 全栈与工具工程 · 社团联合发起人",
       "badge": "联合发起人 · 核心创作者",
-      "bio": "浙江科技大学数字媒体技术专业在读，专注 Godot 独立游戏制作、时间回溯与多窗口 Meta 交互机制设计、叙事解谜及开发工具链构建。\n\n已完成 10+ 场 Game Jam 与多款可在线试玩的原创游戏，代表作《梦醒边界》荣获 GodotHub 第三届开发大赛命题 Jam 赛道二等奖；开源 Godot 模块化存档插件 Enhanced Save System；独立运营个人站「Amiya的书桌」(sayori.org)、XY-Amiya Studio 工作室、技术博客与游戏开发资源导航站，并负责幻造工坊社团官网的视觉设计、交互架构与前端工程搭建。",
-      "specialties": ["Godot 4 独立游戏", "时间与多窗口机制", "Game Jam 实战", "全栈工程与开源工具", "开发笔记与资源整理"],
+      "tracks": ["策划", "程序"],
+      "bio": "浙江科技大学数字媒体技术专业在读，专注 Godot 独立游戏制作、时间回溯与多窗口 Meta 交互机制设计、叙事解谜及开发工具链构建。\n\n已完成 10+ 场 Game Jam 与多款可在线试玩的原创游戏，代表作包括《DelayTrace》《TimeRewindLinker》等机制解谜作品；独立运营个人站「Amiya的书桌」(sayori.org)、XY-Amiya Studio 工作室、技术博客与游戏开发资源导航站，并负责幻造工坊社团官网的视觉设计、交互架构与前端工程搭建。",
+      "specialties": ["Godot 4 独立游戏", "时间与空间解谜机制", "Game Jam 实战", "全栈工程与开源工具", "开发笔记与资源整理"],
       "highlights": [
-        "《梦醒边界》获 GodotHub 第三届开发大赛命题 Jam 赛道二等奖",
-        "独立开发《DelayTrace》《TimeRewindLinker》《Last Minute Echo》等多款可玩作品",
+        "独立开发《DelayTrace》《TimeRewindLinker》等多款核心时间机制解谜作品",
         "创建并维护 XY-Amiya Studio、Amiya的书桌博客与 200+ 条游戏开发资源导航站",
         "主导幻造工坊社团章程筹备、Godot 教程体系整理与社团官网全栈搭建"
       ],
@@ -259,6 +202,7 @@
       "name": "就是Helen",
       "role": "独立游戏开发 · 像素美术与动画 · 游戏编曲 · B站开发日志 UP主",
       "badge": "优秀社员 · 全能型创作者",
+      "tracks": ["程序", "美术", "音乐"],
       "bio": "游戏爱好者与全能型独立游戏创作者，「会游戏开发，一点画画和一点点编曲」。深耕 Unity 2D 独立游戏全流程研发，擅长将细腻的像素画面、场景氛围光影与高交互性的玩法系统融为一体。\n\n在 Bilibili 持续更新 30+ 期《游戏开发日志》，独立完成了包含昼夜路灯光影、四季风雪天气、水体与划船、垂钓、耕种收获、自行车骑行、背包与动态 UI 在内的温馨治愈向沙盒 RPG 原型；曾组队参加 034 GameJam 挑战赛创作平台解谜游戏《送034回家》，并持续探索角色插画手绘与原创游戏配乐制作。",
       "specialties": ["Unity 2D 游戏开发", "昼夜光影与沙盒系统", "像素美术与 UI 动画", "Game Jam 平台解谜", "角色绘画与游戏编曲"],
       "highlights": [
@@ -281,6 +225,7 @@
       "name": "Lycoris Null",
       "role": "ARG 互动叙事设计 · 独立游戏开发 · 彼岸时墟游戏工作室主理人",
       "badge": "优秀社员 · 互动叙事与全栈开发",
+      "tracks": ["策划", "程序", "美术"],
       "bio": "彼岸时墟游戏工作室（briandolph.xyz）主理人，专注于网页互动叙事（ARG）、非线性民俗解谜游戏设计与全栈前端开发。\n\n擅长将在地民俗考据、档案文献伪装与跨媒介解谜机制深度融合，独立完成《第五张财签 · 杭州民俗数字档案馆》的策划、文案、谜题设计与纯静态前端实现，打造“打开浏览器即入局”的沉浸式解谜体验。",
       "specialties": ["民俗解谜 ARG", "非线性互动叙事", "世界观与谜题设计", "全栈前端工程"],
       "highlights": [

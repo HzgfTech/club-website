@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowUpRight, Copy, ExternalLink, FolderOpen, Search, Star, X } from 'lucide-react'
+import { ArrowUpRight, Copy, ExternalLink, FolderOpen, GitPullRequest, Search, Star, X } from 'lucide-react'
 import { Button } from '../components/ui/button'
 import { Input } from '../components/ui/input'
 import { BackLink, EmptyState, FavoriteButton, DownloadButton, NoResults, PageHeading, ResourceIcon, ResourceRow } from '../components/shared'
@@ -11,6 +11,7 @@ const godotTutorials = [
   {
     id: 'godot-beginner-brackeys',
     stage: '入门教程 · 由 Amiya_desi 提供',
+    tracks: ['程序', '策划'],
     title: '[Brackeys] How To Make A Video Game - Godot Beginner Tutorial（中英熟肉）',
     duration: '77 分钟 · 1 集全流程跟练',
     cover: '/images/tutorial-godot-beginner.jpg',
@@ -21,6 +22,7 @@ const godotTutorials = [
   {
     id: 'godot-advanced-brave-legend',
     stage: '进阶教程 · 由 Amiya_desi 提供',
+    tracks: ['程序', '美术', '音乐'],
     title: '十分钟制作横版动作游戏｜Godot 4 教程《勇者传说》系列（30 集）',
     duration: '30 集完整连载 · 横版动作架构',
     cover: '/images/tutorial-godot-advanced.jpg',
@@ -33,63 +35,63 @@ const godotTutorials = [
 const blogArticles = [
   {
     title: '很有用的 Godot 插件清单',
-    category: '引擎与插件',
+    category: '程序 · 策划 · 音乐',
     url: 'https://blog.sayori.org/posts/godot-useful-plugins/',
     summary: '整理 DialogueManager、SceneManager、RichText2、PhantomCamera、SoundManager、GodotSteam 与自研 EnhancedSaveSystem。',
   },
   {
     title: 'Steam 国区开发者注册避坑指南',
-    category: '发行与上架',
+    category: '独立游戏发行',
     url: 'https://blog.sayori.org/posts/steam-dev-work-01/',
     summary: '详解 Steam Direct 注册、拼音实名、W-8BEN 税务表（预扣税率 30% 降至 10%）与银行回单地址验证流程。',
   },
   {
     title: '我的创作资源索引（200+ 书签整理）',
-    category: '资源索引',
+    category: '程序 · 美术 · 音乐',
     url: 'https://blog.sayori.org/posts/resource-index/',
     summary: '汇总游戏配乐、音效、Godot Shader、2D/3D 素材站及使用协议核查方法。',
   },
 ]
 
 const navWebsites = [
-  { name: 'Godot 官方文档', category: '引擎与着色器', url: 'https://docs.godotengine.org/', desc: 'Godot 4 官方 API、节点手册与入门教程。' },
-  { name: 'Godot Asset Store', category: '引擎与着色器', url: 'https://store.godotengine.org/', desc: 'Godot 官方插件、模板与资源商店。' },
-  { name: 'Godot Shaders', category: '引擎与着色器', url: 'https://godotshaders.com/', desc: 'Godot 2D/3D 着色器代码库（水体、描边、CRT、故障特效）。' },
-  { name: 'Godot Recipes', category: '引擎与着色器', url: 'https://kidscancode.org/godot_recipes/4.x/', desc: 'Godot 4 常见玩法机制与系统实现合集。' },
-  { name: 'Awesome Godot', category: '引擎与着色器', url: 'https://github.com/godotengine/awesome-godot', desc: '开源 Godot 插件、工具与示例项目清单。' },
-  { name: 'The Book of Shaders', category: '引擎与着色器', url: 'https://thebookofshaders.com/', desc: '交互式片元着色器入门读物。' },
+  { name: 'Excalidraw', direction: '策划', url: 'https://excalidraw.com/', desc: '手绘风在线白板，适合绘制玩法核心循环、关卡灰盒与状态机草图。' },
+  { name: 'Game Developer Roadmap', direction: '策划', url: 'https://roadmap.sh/game-developer', desc: '游戏机制设计、客户端架构与开发全链路知识图谱。' },
+  { name: 'IndieGameHub', direction: '策划', url: 'https://game.indiehubs.org/', desc: '独立游戏玩法设计、立项范围控制与发行经验库。' },
+  { name: 'DialogueManager (Godot)', direction: '策划', url: 'https://github.com/nathanhoad/godot_dialogue_manager', desc: 'Godot 非线性分支对话与条件叙事编排插件。' },
 
-  { name: 'Kenney Assets', category: '2D/3D 游戏素材', url: 'https://www.kenney.nl/assets/', desc: 'CC0 协议免费 2D 精灵、3D 低模、UI 与音效包。' },
-  { name: 'OpenGameArt', category: '2D/3D 游戏素材', url: 'https://opengameart.org/', desc: '开源游戏素材社区，支持按 CC0 / CC-BY 筛选。' },
-  { name: 'itch.io Free Game Assets', category: '2D/3D 游戏素材', url: 'https://itch.io/game-assets/free', desc: '独立创作者分享的免费像素角色、瓦片地图与 UI。' },
-  { name: 'Quaternius CC0 3D', category: '2D/3D 游戏素材', url: 'https://quaternius.com/', desc: '带骨骼动画的 CC0 低多边形 3D 角色与场景包。' },
-  { name: 'KayKit 3D Assets', category: '2D/3D 游戏素材', url: 'https://kaylousberg.itch.io/', desc: '风格统一的 CC0 3D 角色与地牢场景资产。' },
-  { name: 'Game-icons.net', category: '2D/3D 游戏素材', url: 'https://game-icons.net/', desc: '可自定义配色的游戏技能与物品 SVG/PNG 图标。' },
+  { name: 'Godot 官方文档', direction: '程序', url: 'https://docs.godotengine.org/', desc: 'Godot 4 官方 API、节点手册与 GDScript 指南。' },
+  { name: 'Learn GDScript From Zero', direction: '程序', url: 'https://gdquest.github.io/learn-gdscript/', desc: 'GDQuest 交互式浏览器教程，从零练习 GDScript 编程。' },
+  { name: 'Godot Asset Store', direction: '程序', url: 'https://store.godotengine.org/', desc: 'Godot 官方插件、模板与工具商店。' },
+  { name: 'Godot Shaders', direction: '程序', url: 'https://godotshaders.com/', desc: 'Godot 2D/3D 着色器代码库（水体、描边、CRT、故障特效）。' },
+  { name: 'Godot Recipes', direction: '程序', url: 'https://kidscancode.org/godot_recipes/4.x/', desc: 'Godot 4 常见玩法机制与系统代码实现合集。' },
+  { name: 'Awesome Godot', direction: '程序', url: 'https://github.com/godotengine/awesome-godot', desc: '开源 Godot 插件、工具与示例项目清单。' },
+  { name: 'The Book of Shaders', direction: '程序', url: 'https://thebookofshaders.com/', desc: '交互式片元着色器编程入门读物。' },
+  { name: 'LearnOpenGL', direction: '程序', url: 'https://learnopengl.com/Introduction', desc: '图形学与现代渲染管线编程教程。' },
 
-  { name: 'Pixelorama', category: '像素画与动画', url: 'https://orama-interactive.itch.io/pixelorama', desc: '基于 Godot 开发的开源像素画与序列帧动画编辑器。' },
-  { name: 'LibreSprite', category: '像素画与动画', url: 'https://libresprite.github.io/', desc: 'Aseprite 的开源分支，支持像素绘制与帧动画导出。' },
-  { name: 'Piskel', category: '像素画与动画', url: 'https://www.piskelapp.com/', desc: '浏览器在线绘制像素精灵与导出 Sprite Sheet。' },
-  { name: 'Lospec 调色盘', category: '像素画与动画', url: 'https://lospec.com/palette-list', desc: '像素艺术调色盘库与像素画入门指南。' },
-  { name: 'Laigter 法线贴图', category: '像素画与动画', url: 'https://azagaya.itch.io/laigter', desc: '为 2D 精灵图生成法线贴图，实现 2D 动态受光效果。' },
-  { name: 'Excalidraw', category: '像素画与动画', url: 'https://excalidraw.com/', desc: '手绘风在线白板，适合画关卡灰盒与状态机草图。' },
+  { name: 'Kenney Assets', direction: '美术', url: 'https://www.kenney.nl/assets/', desc: 'CC0 协议免费 2D 精灵、3D 低模与 UI 资产包。' },
+  { name: 'OpenGameArt', direction: '美术', url: 'https://opengameart.org/', desc: '开源游戏美术素材社区，支持按 CC0 / CC-BY 筛选。' },
+  { name: 'itch.io Free Game Assets', direction: '美术', url: 'https://itch.io/game-assets/free', desc: '独立创作者分享的免费像素角色、瓦片地图与 UI。' },
+  { name: 'Pixelorama', direction: '美术', url: 'https://orama-interactive.itch.io/pixelorama', desc: '基于 Godot 开发的开源像素画与序列帧动画编辑器。' },
+  { name: 'LibreSprite', direction: '美术', url: 'https://libresprite.github.io/', desc: 'Aseprite 的开源分支，支持像素绘制与帧动画导出。' },
+  { name: 'Piskel', direction: '美术', url: 'https://www.piskelapp.com/', desc: '浏览器在线绘制像素精灵与导出 Sprite Sheet。' },
+  { name: 'Lospec 调色盘', direction: '美术', url: 'https://lospec.com/palette-list', desc: '像素艺术调色盘库与像素画入门指南。' },
+  { name: 'Laigter 法线贴图', direction: '美术', url: 'https://azagaya.itch.io/laigter', desc: '为 2D 精灵图生成法线贴图，实现 2D 动态受光效果。' },
+  { name: 'Quaternius CC0 3D', direction: '美术', url: 'https://quaternius.com/', desc: '带骨骼动画的 CC0 低多边形 3D 角色与场景包。' },
+  { name: 'KayKit 3D Assets', direction: '美术', url: 'https://kaylousberg.itch.io/', desc: '风格统一的 CC0 3D 角色与地牢场景资产。' },
+  { name: 'Game-icons.net', direction: '美术', url: 'https://game-icons.net/', desc: '可自定义配色的游戏技能与物品 SVG/PNG 图标。' },
 
-  { name: 'PeriTune', category: '游戏音乐与音效', url: 'https://peritune.com/', desc: '免费 BGM 素材，涵盖奇幻、日常、战斗与悬疑曲风。' },
-  { name: 'Freesound', category: '游戏音乐与音效', url: 'https://freesound.org/', desc: '环境音、动作音与 UI 音效库。' },
-  { name: 'jsfxr', category: '游戏音乐与音效', url: 'https://sfxr.me/', desc: '在线一键生成跳跃、拾取、爆炸等 8-bit WAV 音效。' },
-  { name: 'ChipTone', category: '游戏音乐与音效', url: 'https://sfbgames.itch.io/chiptone', desc: '可视化调节波形的复古游戏音效生成器。' },
-  { name: 'DOVA-SYNDROME', category: '游戏音乐与音效', url: 'https://dova-s.jp/', desc: '日系免费 BGM 与音效库，独立游戏与视觉小说常用。' },
-  { name: 'BeepBox', category: '游戏音乐与音效', url: 'https://www.beepbox.co/', desc: '浏览器在线编写 8-bit 循环旋律与配乐。' },
-
-  { name: 'Learn GDScript From Zero', category: '学习与路线图', url: 'https://gdquest.github.io/learn-gdscript/', desc: 'GDQuest 交互式浏览器教程，从零练习 GDScript。' },
-  { name: 'Game Developer Roadmap', category: '学习与路线图', url: 'https://roadmap.sh/game-developer', desc: '游戏开发客户端、图形学与引擎知识路线图。' },
-  { name: 'LearnOpenGL', category: '学习与路线图', url: 'https://learnopengl.com/Introduction', desc: '图形学与现代渲染管线入门教程。' },
-  { name: 'IndieGameHub', category: '学习与路线图', url: 'https://game.indiehubs.org/', desc: '独立游戏设计、开发与发行资料库。' },
+  { name: 'PeriTune', direction: '音乐', url: 'https://peritune.com/', desc: '免费 BGM 素材，涵盖奇幻、日常、战斗与悬疑曲风。' },
+  { name: 'Freesound', direction: '音乐', url: 'https://freesound.org/', desc: '环境音、动作音与 UI 音效库。' },
+  { name: 'jsfxr', direction: '音乐', url: 'https://sfxr.me/', desc: '在线一键生成跳跃、拾取、爆炸等 8-bit WAV 音效。' },
+  { name: 'ChipTone', direction: '音乐', url: 'https://sfbgames.itch.io/chiptone', desc: '可视化调节波形的复古游戏音效生成器。' },
+  { name: 'DOVA-SYNDROME', direction: '音乐', url: 'https://dova-s.jp/', desc: '日系免费 BGM 与音效库，独立游戏与视觉小说常用。' },
+  { name: 'BeepBox', direction: '音乐', url: 'https://www.beepbox.co/', desc: '浏览器在线编写 8-bit 循环旋律与配乐。' },
 ]
 
 export function ResourcesPage() {
   const { catalog, favorites } = useStudio()
   const { params, update, clear } = useFilters()
-  const [navCategory, setNavCategory] = useState('全部')
+  const [navDirection, setNavDirection] = useState('全部')
   const query = params.get('q') ?? ''
   const category = params.get('category') ?? '全部'
   const onlyFavorites = params.get('saved') === '1'
@@ -100,11 +102,15 @@ export function ResourcesPage() {
     (category === '全部' || resource.category === category) &&
     `${resource.title} ${resource.description} ${resource.category} ${resource.format} ${resource.provider ?? ''}`.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase())
   )
-  const navCategories = ['全部', '引擎与着色器', '2D/3D 游戏素材', '像素画与动画', '游戏音乐与音效', '学习与路线图']
-  const visibleWebsites = navWebsites.filter(site => navCategory === '全部' || site.category === navCategory)
+  const navDirections = ['全部', '策划', '程序', '美术', '音乐']
+  const visibleWebsites = navWebsites.filter(site => navDirection === '全部' || site.direction === navDirection)
 
   return <div className="inner-page">
-    <PageHeading title="资源库" description="Godot 视频教程、实用开发指南、工具素材导航与社团文档（由 Amiya_desi 提供）。" />
+    <PageHeading title="资源库" description="按策划、程序、美术、音乐方向整理的教程、指南与工具导航（由 Amiya_desi 提供）。">
+      <a href="https://github.com/HzgfTech/club-website/pulls" target="_blank" rel="noopener noreferrer" className="studio-btn studio-btn--secondary">
+        <GitPullRequest size={15} />GitHub 提交 PR
+      </a>
+    </PageHeading>
 
     <section className="studio-section">
       <div className="studio-section__head">
@@ -124,6 +130,7 @@ export function ResourcesPage() {
               </h3>
               <p className="work-tile__desc">{tutorial.summary}</p>
               <div className="studio-tags">
+                {tutorial.tracks.map(t => <span key={t} className="track-badge">{t}</span>)}
                 {tutorial.highlights.map(tag => <span key={tag}>{tag}</span>)}
               </div>
               <div className="work-tile__foot">
@@ -159,16 +166,16 @@ export function ResourcesPage() {
         <span className="meta-note">源自 nav.sayori.org · 由 Amiya_desi 提供</span>
       </div>
 
-      <div className="filter-tabs nav-filter-tabs" role="group" aria-label="外部导航分类">
-        {navCategories.map(item => (
+      <div className="filter-tabs nav-filter-tabs" role="group" aria-label="外部导航方向">
+        {navDirections.map(item => (
           <button
             key={item}
             type="button"
-            aria-pressed={navCategory === item}
-            className={navCategory === item ? 'active' : ''}
-            onClick={() => setNavCategory(item)}
+            aria-pressed={navDirection === item}
+            className={navDirection === item ? 'active' : ''}
+            onClick={() => setNavDirection(item)}
           >
-            {item}
+            {item === '全部' ? '全部方向' : `${item}方向`}
           </button>
         ))}
       </div>
@@ -178,7 +185,7 @@ export function ResourcesPage() {
           <a key={site.url} href={site.url} target="_blank" rel="noopener noreferrer" className="nav-site-card">
             <div className="nav-site-head">
               <strong>{site.name}</strong>
-              <span className="nav-site-cat">{site.category}</span>
+              <span className="nav-site-cat">{site.direction}</span>
               <ExternalLink size={14} />
             </div>
             <p>{site.desc}</p>

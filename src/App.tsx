@@ -196,6 +196,12 @@ export default function App() {
             </button>
             <a href={`tel:${phone}`} className="footer-contact-pill">电话：{phone}</a>
             <a href={`mailto:${email}`} className="footer-contact-pill">{email}</a>
+            <a href="https://github.com/HzgfTech/club-website" target="_blank" rel="noopener noreferrer" className="footer-contact-pill">
+              GitHub 仓库<ArrowUpRight size={12} />
+            </a>
+            <a href="https://github.com/HzgfTech/club-website/pulls" target="_blank" rel="noopener noreferrer" className="footer-contact-pill">
+              提交 PR<ArrowUpRight size={12} />
+            </a>
           </div>
         </div>
         <p className="footer-copy">© 2026 幻造工坊 · Huanzao Workshop</p>

@@ -1,4 +1,4 @@
-import { ArrowUpRight, ExternalLink, Gamepad2, Search, Users, X } from 'lucide-react'
+import { ArrowUpRight, ExternalLink, Gamepad2, GitPullRequest, Search, Users, X } from 'lucide-react'
 import { Button } from '../components/ui/button'
 import { Input } from '../components/ui/input'
 import { BackLink, EmptyState, NoResults, PageHeading } from '../components/shared'
@@ -6,12 +6,14 @@ import { useStudio } from '../lib/store'
 import { useFilters } from '../lib/filters'
 import { normalizePath } from '../lib/utils'
 
+const DIRECTIONS = ['全部', '策划', '程序', '美术', '音乐']
+
 export function ShowcasePage() {
   const { catalog, setContact } = useStudio()
   const { params, update, clear } = useFilters()
   const id = params.get('id')
   const query = params.get('q') ?? ''
-  const category = params.get('category') ?? '全部'
+  const direction = params.get('track') ?? '全部'
   const works = catalog!.works
   const selected = works.find(work => work.id === id)
   const backParams = new URLSearchParams(params); backParams.delete('id')
@@ -37,11 +39,10 @@ export function ShowcasePage() {
           <h1>{selected.title}</h1>
           <p className="work-detail__author">创作者：{selected.author}</p>
           <p className="detail-intro">{selected.summary}</p>
-          {selected.tags && (
-            <div className="studio-tags">
-              {selected.tags.map(tag => <span key={tag}>{tag}</span>)}
-            </div>
-          )}
+          <div className="studio-tags">
+            {(selected.tracks ?? []).map(t => <span key={t} className="track-badge">{t}</span>)}
+            {(selected.tags ?? []).map(tag => <span key={tag}>{tag}</span>)}
+          </div>
           <div className="studio-hero__actions">
             <a href={selected.url} target="_blank" rel="noopener noreferrer" className="studio-btn studio-btn--primary">
               打开作品<ArrowUpRight size={16} />
@@ -63,28 +64,33 @@ export function ShowcasePage() {
   }
 
   const filtered = works.filter(work =>
-    (category === '全部' || work.category === category) &&
-    `${work.title} ${work.summary} ${work.author} ${work.engine ?? ''} ${(work.tags ?? []).join(' ')}`.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase())
+    (direction === '全部' || (work.tracks ?? []).includes(direction)) &&
+    `${work.title} ${work.summary} ${work.author} ${work.category} ${work.engine ?? ''} ${(work.tracks ?? []).join(' ')} ${(work.tags ?? []).join(' ')}`.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase())
   )
 
   return <div className="inner-page">
-    <PageHeading title="作品展" description="社团成员制作的独立游戏、民俗解谜 ARG、Game Jam 作品与开源工具。">
-      <button type="button" className="studio-btn studio-btn--primary" onClick={() => setContact('work')}>
-        提交作品<ArrowUpRight size={16} />
-      </button>
+    <PageHeading title="作品展" description="按策划、程序、美术、音乐方向浏览社员独立游戏、ARG 与开源工具。">
+      <div className="heading-links">
+        <a href="https://github.com/HzgfTech/club-website/pulls" target="_blank" rel="noopener noreferrer" className="studio-btn studio-btn--secondary">
+          <GitPullRequest size={15} />提交 PR
+        </a>
+        <button type="button" className="studio-btn studio-btn--primary" onClick={() => setContact('work')}>
+          提交作品<ArrowUpRight size={16} />
+        </button>
+      </div>
     </PageHeading>
 
     <div className="work-tools">
-      <div className="filter-tabs" role="group" aria-label="作品分类">
-        {['全部', ...new Set(works.map(work => work.category))].map(item => (
+      <div className="filter-tabs" role="group" aria-label="创作方向">
+        {DIRECTIONS.map(item => (
           <button
             key={item}
             type="button"
-            aria-pressed={category === item}
-            className={category === item ? 'active' : ''}
-            onClick={() => update('category', item === '全部' ? '' : item)}
+            aria-pressed={direction === item}
+            className={direction === item ? 'active' : ''}
+            onClick={() => update('track', item === '全部' ? '' : item)}
           >
-            {item}
+            {item === '全部' ? '全部方向' : `${item}方向`}
           </button>
         ))}
       </div>
@@ -106,11 +112,10 @@ export function ShowcasePage() {
                 <a href={`/work.html?id=${work.id}${params.size ? '&' + params : ''}`}>{work.title}</a>
               </h2>
               <p className="work-tile__desc">{work.summary}</p>
-              {work.tags && (
-                <div className="studio-tags">
-                  {work.tags.map(tag => <span key={tag}>{tag}</span>)}
-                </div>
-              )}
+              <div className="studio-tags">
+                {(work.tracks ?? []).map(t => <span key={t} className="track-badge">{t}</span>)}
+                {(work.tags ?? []).map(tag => <span key={tag}>{tag}</span>)}
+              </div>
               <div className="work-tile__foot">
                 <span>创作者：{work.author}</span>
                 <a href={`/work.html?id=${work.id}${params.size ? '&' + params : ''}`} className="studio-text-link">查看详情<ArrowUpRight size={15} /></a>
@@ -130,6 +135,7 @@ export function MembersPage() {
   const { params, update, clear } = useFilters()
   const id = params.get('id')
   const query = params.get('q') ?? ''
+  const direction = params.get('track') ?? '全部'
   const members = catalog!.members
   const works = catalog!.works
   const selected = members.find(member => member.id === id)
@@ -155,6 +161,7 @@ export function MembersPage() {
           <h1>{selected.name}</h1>
           <p className="member-role">{selected.role}</p>
           <div className="studio-tags">
+            {(selected.tracks ?? []).map(t => <span key={t} className="track-badge">{t}</span>)}
             {selected.specialties.map(tag => <span key={tag}>{tag}</span>)}
           </div>
         </div>
@@ -213,17 +220,36 @@ export function MembersPage() {
   }
 
   const filtered = members.filter(member =>
-    `${member.name} ${member.role} ${member.bio} ${member.specialties.join(' ')} ${(member.highlights ?? []).join(' ')}`.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase())
+    (direction === '全部' || (member.tracks ?? []).includes(direction)) &&
+    `${member.name} ${member.role} ${member.bio} ${(member.tracks ?? []).join(' ')} ${member.specialties.join(' ')} ${(member.highlights ?? []).join(' ')}`.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase())
   )
 
   return <div className="inner-page">
-    <PageHeading title="优秀社员" description="社团核心独立游戏制作人、程序、叙事与美术创作者档案。">
-      <button type="button" className="studio-btn studio-btn--primary" onClick={() => setContact('member')}>
-        提交社员资料<ArrowUpRight size={16} />
-      </button>
+    <PageHeading title="优秀社员" description="按策划、程序、美术、音乐方向浏览社团核心创作者档案。">
+      <div className="heading-links">
+        <a href="https://github.com/HzgfTech/club-website/pulls" target="_blank" rel="noopener noreferrer" className="studio-btn studio-btn--secondary">
+          <GitPullRequest size={15} />提交 PR
+        </a>
+        <button type="button" className="studio-btn studio-btn--primary" onClick={() => setContact('member')}>
+          提交社员资料<ArrowUpRight size={16} />
+        </button>
+      </div>
     </PageHeading>
 
     <div className="work-tools">
+      <div className="filter-tabs" role="group" aria-label="社员方向">
+        {DIRECTIONS.map(item => (
+          <button
+            key={item}
+            type="button"
+            aria-pressed={direction === item}
+            className={direction === item ? 'active' : ''}
+            onClick={() => update('track', item === '全部' ? '' : item)}
+          >
+            {item === '全部' ? '全部方向' : `${item}方向`}
+          </button>
+        ))}
+      </div>
       <CollectionSearch query={query} setQuery={value => update('q', value)} label="搜索社员" />
     </div>
 
@@ -248,6 +274,7 @@ export function MembersPage() {
             <p className="member-bio">{member.bio}</p>
 
             <div className="studio-tags">
+              {(member.tracks ?? []).map(t => <span key={t} className="track-badge">{t}</span>)}
               {member.specialties.map(tag => <span key={tag}>{tag}</span>)}
             </div>
           </article>

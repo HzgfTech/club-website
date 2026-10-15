@@ -24,6 +24,7 @@ self.addEventListener('activate', event => {
 });
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
+  if (url.pathname.startsWith('/api/')) return;
   const path = resolvePath(url.pathname);
   const known = FILES.includes(path);
   if (event.request.method !== 'GET' || url.origin !== self.location.origin || (event.request.mode !== 'navigate' && !known)) return;

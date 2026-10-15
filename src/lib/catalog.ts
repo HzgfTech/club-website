@@ -5,7 +5,7 @@ export type Resource = {
 }
 export type Work = {
   id: string; title: string; summary: string; category: string; author: string; url: string; cover?: string
-  engine?: string; status?: string; featured?: boolean; tags?: string[]; detail?: string
+  engine?: string; status?: string; featured?: boolean; tags?: string[]; tracks?: string[]; detail?: string
   sourceUrl?: string; sourceLabel?: string
 }
 export type MemberLink = {
@@ -13,7 +13,7 @@ export type MemberLink = {
 }
 export type Member = {
   id: string; name: string; role: string; bio: string; specialties: string[]; avatar?: string; url?: string
-  badge?: string; highlights?: string[]; links?: MemberLink[]
+  badge?: string; tracks?: string[]; highlights?: string[]; links?: MemberLink[]
 }
 export type ClubInfo = {
   name: string; email: string; phone?: string; qqGroup?: string
@@ -99,6 +99,7 @@ export function parseCatalog(value: unknown): Catalog {
       status: optionalText(item.status),
       featured: typeof item.featured === 'boolean' ? item.featured : undefined,
       tags: item.tags === undefined ? undefined : stringList(item.tags, '作品标签格式不正确。'),
+      tracks: item.tracks === undefined ? undefined : stringList(item.tracks, '作品方向格式不正确。'),
       detail: optionalText(item.detail),
       sourceUrl: item.sourceUrl === undefined ? undefined : publicUrl(item.sourceUrl),
       sourceLabel: optionalText(item.sourceLabel),
@@ -117,6 +118,7 @@ export function parseCatalog(value: unknown): Catalog {
         id: id(item.id), name: text(item.name), role: text(item.role), bio: text(item.bio),
         specialties, avatar: imageUrl(item.avatar), url: item.url === undefined ? undefined : publicUrl(item.url),
         badge: optionalText(item.badge),
+        tracks: item.tracks === undefined ? undefined : stringList(item.tracks, '社员方向格式不正确。'),
         highlights: item.highlights === undefined ? undefined : stringList(item.highlights, '社员亮点格式不正确。'),
         links,
       }

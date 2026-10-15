@@ -1,4 +1,4 @@
-import { ArrowUpRight, Copy, Code2, Music2, Paintbrush, Puzzle } from 'lucide-react'
+import { ArrowUpRight, Copy, Code2, GitPullRequest, Music2, Paintbrush, Puzzle } from 'lucide-react'
 import { PageHeading } from '../components/shared'
 import { copyText, useStudio } from '../lib/store'
 
@@ -62,8 +62,8 @@ const faqs = [
     a: '常用引擎包括 Godot 4 与 Unity，配合 Git 进行版本控制，使用 Pixelorama / LibreSprite / Aseprite 绘制像素美术，使用 jsfxr / BeepBox 制作音效与配乐。',
   },
   {
-    q: '社员作品版权归谁？',
-    a: '个人作品归创作者本人所有；团队项目由小组成员共同署名。',
+    q: '如何提交自己的优秀社员简历或作品？',
+    a: '点击网页右上角或页面中的提交按钮，可直接套用默认表格模板并由网站在线代发至社团邮箱，也可前往 GitHub 仓库直接提交 Pull Request。',
   },
 ]
 
@@ -76,9 +76,14 @@ export function AboutPage() {
 
   return <div className="inner-page">
     <PageHeading title="关于幻造工坊" description="浙江科技大学幻造工坊游戏开发社团简介、部门设置与联系方式。">
-      <button type="button" className="studio-btn studio-btn--primary" onClick={() => setContact('contact')}>
-        联系工坊<ArrowUpRight size={16} />
-      </button>
+      <div className="heading-links">
+        <a href="https://github.com/HzgfTech/club-website" target="_blank" rel="noopener noreferrer" className="studio-btn studio-btn--secondary">
+          <GitPullRequest size={15} />GitHub 仓库
+        </a>
+        <button type="button" className="studio-btn studio-btn--primary" onClick={() => setContact('contact')}>
+          联系工坊<ArrowUpRight size={16} />
+        </button>
+      </div>
     </PageHeading>
 
     <section className="about-layout">
@@ -89,6 +94,24 @@ export function AboutPage() {
         <p>
           我们提倡<strong>“先做出可玩的东西，再通过试玩继续打磨”</strong>。成员可以从策划、程序、美术或音效切入，在基础工作坊、跨专业小组开发与 Game Jam 比赛中共同完成原创游戏作品。
         </p>
+
+        <div className="mail-guide-card">
+          <p className="work-tile__meta">联系与投稿小贴士</p>
+          <h3>如何使用 QQ 邮箱或在线代发联系我们？</h3>
+          <ul className="studio-bullet-list">
+            <li><strong>最通用 QQ 邮箱格式</strong>：即你的 <code>QQ号@qq.com</code>（例如 QQ 号为 <code>123456789</code>，邮箱就是 <code>123456789@qq.com</code>），推荐优先使用自己的 QQ 邮箱以便后续直接收到回信。</li>
+            <li><strong>免填邮箱在线代发</strong>：如果不方便填写邮箱，邮箱栏可留空（选填），只需留下你的 QQ / 微信 / 手机号，点击<strong>「网站直接代发」</strong>即可由工坊服务器代为投递。</li>
+            <li><strong>默认模板与加群推荐</strong>：弹窗内置「优秀社员自荐」与「作品投稿」默认表格模板，提交后推荐同步加入社团 QQ 群 <strong>{qqGroup}</strong>。</li>
+          </ul>
+          <div className="mail-guide-actions">
+            <button type="button" className="studio-btn studio-btn--primary" onClick={() => setContact('member')}>
+              优秀社员自荐模板<ArrowUpRight size={15} />
+            </button>
+            <button type="button" className="studio-btn studio-btn--secondary" onClick={() => setContact('work')}>
+              作品投稿模板<ArrowUpRight size={15} />
+            </button>
+          </div>
+        </div>
       </div>
 
       <dl className="about-facts">
@@ -123,6 +146,10 @@ export function AboutPage() {
         <div className="about-fact">
           <dt>联系邮箱</dt>
           <dd><a href={`mailto:${email}`}>{email}</a></dd>
+        </div>
+        <div className="about-fact">
+          <dt>开源仓库</dt>
+          <dd><a href="https://github.com/HzgfTech/club-website" target="_blank" rel="noopener noreferrer" className="studio-text-link">HzgfTech/club-website<ArrowUpRight size={13} /></a></dd>
         </div>
       </dl>
     </section>
@@ -183,28 +210,28 @@ export function AboutPage() {
 const directions = [
   {
     id: 'game-design',
-    title: '游戏设计',
-    brief: '玩法机制 · 关卡灰盒 · 叙事',
+    title: '游戏设计（策划方向）',
+    brief: '玩法机制 · 关卡灰盒 · 互动叙事',
     text: '设计核心规则与关卡动线，搭建灰盒测试可玩性，让每次操作与选择都有清晰反馈。',
     icon: Puzzle,
   },
   {
     id: 'programming',
-    title: '程序开发',
+    title: '程序开发（程序方向）',
     brief: 'Godot 4 · Unity · 状态机 · 工具',
     text: '用代码实现角色控制、时间与窗口交互机制、2D 光影、存档系统及多人同步。',
     icon: Code2,
   },
   {
     id: 'visual-art',
-    title: '视觉创作',
+    title: '视觉创作（美术方向）',
     brief: '像素精灵 · 帧动画 · 场景与 UI',
     text: '绘制角色立绘、像素序列帧动画与 TileMap 瓦片地图，构建独特的画面氛围。',
     icon: Paintbrush,
   },
   {
     id: 'audio',
-    title: '声音创作',
+    title: '声音创作（音乐方向）',
     brief: '循环 BGM · 8-bit 音效 · 氛围',
     text: '合成跳跃、拾取与机关触发音效，创作契合世界观的循环配乐。',
     icon: Music2,
@@ -220,14 +247,19 @@ export function JoinPage() {
 
   return <div className="inner-page">
     <PageHeading title="加入幻造工坊" description="选择一个感兴趣的方向，和我们一起做出下一款游戏。">
-      <button type="button" className="studio-btn studio-btn--primary" onClick={() => setContact('join')}>
-        填写加入邮件<ArrowUpRight size={16} />
-      </button>
+      <div className="heading-links">
+        <button type="button" className="studio-btn studio-btn--secondary" onClick={() => setContact('member')}>
+          优秀社员自荐<ArrowUpRight size={15} />
+        </button>
+        <button type="button" className="studio-btn studio-btn--primary" onClick={() => setContact('join')}>
+          在线报名 / 代发邮件<ArrowUpRight size={16} />
+        </button>
+      </div>
     </PageHeading>
 
     <section id="directions" className="studio-section">
       <div className="studio-section__head">
-        <h2>参与方向</h2>
+        <h2>四大参与方向</h2>
       </div>
       <div className="direction-list">
         {directions.map(({ id, title, brief, text, icon: Icon }, i) => (
@@ -244,17 +276,32 @@ export function JoinPage() {
       </div>
     </section>
 
-    <section className="contact-band">
-      <div>
-        <h2>直接加入或联系</h2>
-        <p>加入招新 QQ 群获取最新工作坊通知，或通过电话、邮件联系我们。</p>
+    <section className="about-layout join-contact-grid">
+      <div className="mail-guide-card">
+        <p className="work-tile__meta">邮箱与在线报名教程</p>
+        <h3>不想配置邮箱？也可一键在线代发</h3>
+        <ul className="studio-bullet-list">
+          <li><strong>QQ 邮箱最通用写法</strong>：直接填写 <code>你的QQ号@qq.com</code>（输入 QQ 号后点击“用 QQ 号一键补全”即可自动生成）。</li>
+          <li><strong>免填邮箱直接代发</strong>：邮箱为选填项，留下你的 QQ 号或手机号后点击<strong>「网站直接代发」</strong>，即可自动发信至社团邮箱。</li>
+          <li><strong>GitHub PR 自荐</strong>：熟悉 Git 的同学也可直接在 <a href="https://github.com/HzgfTech/club-website/pulls" target="_blank" rel="noopener noreferrer" className="studio-text-link">GitHub 仓库提交 PR</a> 登记作品或社员简历。</li>
+        </ul>
       </div>
-      <div className="contact-band__actions">
-        <button type="button" className="studio-btn studio-btn--primary" onClick={() => copyText(qqGroup, 'QQ 群号已复制')}>
-          复制招新 QQ 群：{qqGroup}<Copy size={14} />
-        </button>
-        <a href={`tel:${phone}`} className="contact-band__link">电话：{phone}</a>
-        <a href={`mailto:${email}`} className="contact-band__link">{email}</a>
+
+      <div className="contact-band join-band-box">
+        <div>
+          <h2>加入招新交流 QQ 群</h2>
+          <p>填写完成后推荐直接加入社团 QQ 群，获取工作坊通知与组队信息。</p>
+        </div>
+        <div className="contact-band__actions">
+          <button type="button" className="studio-btn studio-btn--primary" onClick={() => copyText(qqGroup, 'QQ 群号已复制')}>
+            复制 QQ 群：{qqGroup}<Copy size={14} />
+          </button>
+          <button type="button" className="studio-btn studio-btn--secondary" onClick={() => setContact('join')}>
+            打开报名表单<ArrowUpRight size={15} />
+          </button>
+          <a href={`tel:${phone}`} className="contact-band__link">电话：{phone}</a>
+          <a href={`mailto:${email}`} className="contact-band__link">{email}</a>
+        </div>
       </div>
     </section>
   </div>
